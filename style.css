@@ -78,3 +78,37 @@
 .charge-links{display:flex;flex-wrap:wrap;gap:8px 15px;border-top:1px solid var(--line);padding-top:10px}
 .charge-links a{color:var(--red);font-size:11px;line-height:1.7;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:700px){.charge-guide{margin:19px 0 17px;padding-top:17px}.charge-cards{grid-template-columns:1fr}.charge-card{padding:13px}.charge-links a{display:inline-flex;min-height:34px;align-items:center}}
+
+/* Separate sketched walking map for central Chaozhou snacks, embedded inside the ice stop */
+.walk-guide{margin-top:18px;padding:18px 15px;background:var(--soft);border:1px solid var(--line);width:100%;min-width:0}
+.walk-guide-head>span{font-size:10px;color:var(--red);font-weight:600;letter-spacing:1px}
+.walk-guide-head h5{font:600 20px/1.5 var(--serif);margin:4px 0}
+.walk-guide-head p{font-size:12px;color:var(--muted);line-height:1.8;margin:0 0 12px}
+.walk-figure{margin:0;padding:0;width:100%;min-width:0}
+.walk-map-scroll{border:1px solid #c5b79f;background:#eee8db;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;max-width:100%}
+.walk-map-scroll object{width:100%;height:auto;aspect-ratio:1100/905;display:block}
+.walk-figure figcaption{padding:8px 1px 3px;font-size:10px;line-height:1.7;color:var(--muted)}
+.walk-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:10px 0 15px}
+.walk-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:37px;padding:7px 11px;font-size:11px;line-height:1.4;font-weight:600;text-decoration:none}
+.walk-navigation{background:var(--red);color:var(--white)!important;border:1px solid var(--red)}
+.walk-standalone{border:1px solid var(--line);color:var(--red)!important}
+.walk-directory{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.walk-directory li{display:flex!important;align-items:center;gap:9px;padding:8px 10px;background:var(--white);min-width:0;border:1px solid var(--line);grid-template-columns:unset!important}
+.walk-directory li:before{content:none!important}
+.walk-id{display:grid;place-items:center;flex:0 0 26px;height:26px;border-radius:50%;font:600 14px Georgia,serif;color:#fff}
+.walk-id.primary{background:#a94936}.walk-id.optional{background:#507e72}
+.walk-directory li>div{flex:1;min-width:0}
+.walk-directory strong{display:block;font-size:12px;line-height:1.65}
+.walk-directory small{display:block;color:var(--muted);font-size:10px;line-height:1.6}
+.walk-directory li>a{font-size:11px;white-space:nowrap;color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.walk-backups{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.walk-backups summary{font-size:12px;color:var(--red);font-weight:600;cursor:pointer;padding:6px 0}
+.walk-backups .walk-directory{margin:8px 0}
+.walk-backups>p{font-size:10px;color:var(--muted);line-height:1.8;margin:8px 0 0}
+@media(max-width:700px){
+.walk-guide{padding:13px 9px;margin-top:12px}
+.walk-map-scroll object{width:max(100%,570px);max-width:none;aspect-ratio:1100/905}
+.walk-actions{gap:8px}.walk-actions a{flex:1 1 165px}
+.walk-directory li{grid-template-columns:unset!important;padding:7px 6px}
+.walk-directory strong{font-size:11px}.walk-directory small{font-size:10px}
+}
