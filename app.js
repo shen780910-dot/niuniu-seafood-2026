@@ -9,11 +9,12 @@ const chaozhouWalkStops=[
  {id:'2',name:'潮州三山國王廟',address:'西市路 33 號',kind:'順路走逛',url:map('屏東縣潮州鎮西市路33號 三山國王廟'),main:true},
  {id:'3',name:'林耀輝草茶',address:'西市路 33-5 號',kind:'外帶飲料',url:map('屏東縣潮州鎮西市路33-5號 林耀輝草茶'),main:true},
  {id:'A',name:'阿倫冰店',address:'新生路 149 號',kind:'冷熱冰二選一',url:map('屏東縣潮州鎮新生路149號 阿倫冰店')},
- {id:'B',name:'清福號木瓜牛乳',address:'西市路 33-7 號',kind:'飲料備選',url:map('屏東縣潮州鎮西市路33-7號 清福號木瓜牛乳')},
+ {id:'B',name:'清福號木瓜牛奶',address:'西市路 33-7 號',kind:'廟口老店・飲料備選',url:map('屏東縣潮州鎮西市路33-7號 清福號木瓜牛奶')},
  {id:'C',name:'潮Q 小米甜甜圈',address:'建基路 142 號',kind:'現炸小點',url:map('屏東縣潮州鎮建基路142號 潮Q小米甜甜圈')},
  {id:'D',name:'文記肉圓',address:'建基路 177 號',kind:'鹹食備選',url:map('屏東縣潮州鎮建基路177號 文記肉圓')},
  {id:'E',name:'東港爆漿湯包・潮州店',address:'平安路 1-1 號',kind:'現蒸外帶・需候餐',url:map('屏東縣潮州鎮平安路1-1號 東港爆漿湯包 潮州店')},
- {id:'F',name:'建基路老街',address:'建基路一帶',kind:'有空再散步',url:map('屏東縣潮州鎮建基路 老街')}
+ {id:'F',name:'建基路老街',address:'建基路一帶',kind:'有空再散步',url:map('屏東縣潮州鎮建基路 老街')},
+ {id:'G',name:'創意粉圓',address:'三星路周邊',kind:'較遠備案・非圓環步行主線',url:'https://maps.app.goo.gl/aN1unEnRt9RJezRu8'}
 ];
 const chaozhouWalkNav='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent('屏東縣潮州鎮新生路120號')+'&destination='+encodeURIComponent('屏東縣潮州鎮西市路33-5號')+'&waypoints='+encodeURIComponent('屏東縣潮州鎮西市路33號 三山國王廟')+'&travelmode=walking';
 const tunaShops=[
@@ -66,12 +67,12 @@ function renderChaozhouWalkGuide(){
  return `<section class="walk-guide" id="chaozhou-walk-map" aria-label="潮州圓環散步地圖與備選美食">
   <div class="walk-guide-head"><span>CHAOZHOU WALK · 潮州小散步</span><h5>圓環散步地圖</h5><p>主線只排吃冰、三山國王廟與青草茶；其他店全部是備選。不延後約 16:00 出發去萬丹的時間。</p></div>
   <figure class="walk-figure">
-   <div class="walk-map-scroll"><object type="image/svg+xml" data="assets/chaozhou-walk-map.svg?v=20261024-walk1" aria-label="潮州圓環步行地圖，紅色主要步行路線與綠色備選店家；可點圖開啟導航"><img src="assets/chaozhou-walk-map.svg?v=20261024-walk1" alt="潮州圓環散步手繪圖，正老牌冷熱冰、三山國王廟、林耀輝草茶依序推薦；阿倫冰店、清福號、潮Q甜甜圈、文記肉圓、東港爆漿湯包與建基路老街為備選"></object></div>
-   <figcaption>紅色 1–3：推薦步行順序｜綠色 A–F：備選。街道為手繪示意，不取代即時導航。</figcaption>
+   <div class="walk-map-scroll"><object type="image/svg+xml" data="assets/chaozhou-walk-map.svg?v=20261024-snack2" aria-label="潮州圓環步行地圖，紅色主要步行路線與綠色備選店家；可點圖開啟導航"><img src="assets/chaozhou-walk-map.svg?v=20261024-snack2" alt="潮州圓環散步手繪圖，正老牌冷熱冰、三山國王廟、林耀輝草茶依序推薦；阿倫冰店、清福號木瓜牛奶、潮Q甜甜圈、文記肉圓、東港爆漿湯包、建基路老街與創意粉圓為備選"></object></div>
+   <figcaption>紅色 1–3：推薦步行順序｜綠色 A–G：備選。街道為手繪示意，不取代即時導航。</figcaption>
   </figure>
-  <div class="walk-actions"><a href="${chaozhouWalkNav}" target="_blank" rel="noopener noreferrer" class="walk-navigation">Google Maps 推薦步行路線 ↗</a><a href="assets/chaozhou-walk-map.svg?v=20261024-walk1" target="_blank" rel="noopener noreferrer" class="walk-standalone">開啟完整散步地圖 ↗</a></div>
+  <div class="walk-actions"><a href="${chaozhouWalkNav}" target="_blank" rel="noopener noreferrer" class="walk-navigation">Google Maps 推薦步行路線 ↗</a><a href="assets/chaozhou-walk-map.svg?v=20261024-snack2" target="_blank" rel="noopener noreferrer" class="walk-standalone">開啟完整散步地圖 ↗</a></div>
   <ol class="walk-directory">${mainStops.map(line).join('')}</ol>
-  <details class="walk-backups"><summary>展開另外 ${alternativeStops.length} 個備選小吃・散步點</summary><ol class="walk-directory">${alternativeStops.map(line).join('')}</ol><p>東港爆漿湯包潮州店位於平安路 1-1 號，現蒸外帶可能需等候，出發前可先問店家。備選不必全部走完。</p></details>
+  <details class="walk-backups"><summary>展開另外 ${alternativeStops.length} 個備選小吃・散步點</summary><ol class="walk-directory">${alternativeStops.map(line).join('')}</ol><p>東港爆漿湯包潮州店位於平安路 1-1 號，現蒸外帶可能需等候。創意粉圓位於三星路周邊，距圓環主線較遠，請依所附 Google Maps 連結另行導航，不建議排進這段 25 分鐘散步。</p></details>
  </section>`;
 }
 function renderDay(){
