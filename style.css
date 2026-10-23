@@ -9,3 +9,6 @@
 
 /* Time-first permanent map labels */
 .trip-map-tooltip strong{display:block;font-size:12px;color:#a44732;letter-spacing:.2px}.trip-map-tooltip span{display:block;font-size:11px;white-space:nowrap}.pingtung-map .leaflet-tooltip.trip-map-tooltip{line-height:1.5}@media(max-width:700px){.trip-map-tooltip strong{font-size:11px}.trip-map-tooltip span{font-size:10px}}
+
+/* Keep geographic map in the exact slot of the earlier route sketch */
+.day-story .geo-map-section{margin:22px 0 20px;padding:12px;grid-column:auto;width:100%;box-sizing:border-box}.day-story .geo-map-heading h3{font-size:18px;line-height:1.5}.day-story .geo-map-heading p{font-size:10px}.day-story .pingtung-map{height:430px}.day-story .map-key{font-size:10px}.day-story .leaflet-container{font-family:var(--sans)}@media(max-width:700px){.day-story .pingtung-map{height:380px}}
