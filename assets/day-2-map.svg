@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 910" width="1100" height="910" role="img" aria-labelledby="map-title map-desc">
 <title id="map-title">10月24日｜台南出發，東港、潮州、萬丹手繪食旅地圖</title>
-<desc id="map-desc">依景點大致方位繪製的原創手繪風格SVG路線圖，含道路紋理、河海景觀與行程編號。10:00安平留飯店出發；11:30東港華僑市場；13:15至15:10潮州鐵道園區為主要親子景點；15:25潮州冷熱冰；17:00萬丹街頭牛肉爐老店已訂位。大鮪魚航海樂園改列東港備選景點，不包含在主要行程路線。圖中景點可點選開啟Google Maps。道路細節為藝術示意，非導航圖。</desc>
+<desc id="map-desc">依景點大致方位繪製的原創手繪風格SVG路線圖，含道路紋理、河海景觀與行程編號。10:00安平留飯店出發；11:30東港華僑市場；13:15至15:10潮州鐵道園區為主要親子景點；15:25潮州冷熱冰；17:00萬丹街頭牛肉爐老店已訂位。大鮪魚航海樂園改列東港備選景點，不包含在主要行程路線。藍色閃電標記為高雄鳳山Tesla超充與東港行政中心120kW CCS2快充備案，均不在固定行程中；點選標記可開啟Google Maps開車導航。圖中景點可點選開啟Google Maps。道路細節為藝術示意，非導航圖。</desc>
 <defs>
  <clipPath id="paper-map"><rect x="43" y="126" width="1014" height="719" rx="5"/></clipPath>
  <filter id="paper-noise" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".46" numOctaves="3" seed="14" result="grain"/><feColorMatrix in="grain" type="matrix" values="0 0 0 0 .35 0 0 0 0 .29 0 0 0 0 .22 0 0 0 .085 0"/></filter>
@@ -115,10 +115,39 @@
   <path d="M696 302Q730 276 744 254" fill="none" stroke="#846f5d" stroke-width="1.7"/>
   <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E8%90%AC%E4%B8%B9%E9%84%89%E8%90%AC%E5%85%A8%E6%9D%91%E8%90%AC%E4%B8%B9%E8%B7%AF%E4%B8%80%E6%AE%B5488%E8%99%9F" target="_blank" rel="noopener noreferrer" aria-label="屏東縣萬丹鄉萬全村萬丹路一段488號：開啟 Google Maps"><title>屏東縣萬丹鄉萬全村萬丹路一段488號・開啟 Google Maps</title><g transform="translate(730 239)"><path d="M0 0 Q160 -5 320 0 L314 70 Q160 76 -2 69Z" fill="#f3efdf" stroke="#d1c29f" stroke-width="1.7" opacity=".96"/><text x="17" y="22" font-family="Georgia, serif" font-style="italic" font-size="18" font-weight="bold" fill="#ad4b35">17:00 已訂位</text><text x="17" y="46" font-family="KaiTi, DFKai-SB, Noto Serif TC, serif" font-size="20" fill="#26312e" font-weight="bold">街頭牛肉爐・老店</text><text x="18" y="63" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#73776c">店面正對面有專屬免費停車場</text></g><g transform="translate(695 320)"><circle r="20" fill="#ae4c38" stroke="#f7f2e6" stroke-width="4"/><circle r="15" fill="none" stroke="#c67560" stroke-width="1.5" opacity=".65"/><text text-anchor="middle" x="0" y="6" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#fff9ed">5</text></g></a>
  </g>
- <g transform="translate(972 158)"><text x="0" y="0" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#26312e">N</text><path d="M0 10L-9 39L0 33L9 39Z" fill="#26312e"/><path d="M0 45L0 65" stroke="#26312e" stroke-width="1.5"/></g>
+ 
+ <g id="optional-charging-waypoints" aria-label="兩個補電備案，藍色閃電標記可點擊導航">
+  
+ <!-- Optional fast-charge waypoint: distinct blue lightning, not a numbered itinerary stop -->
+ <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%AB%98%E9%9B%84%E5%B8%82%E9%B3%B3%E5%B1%B1%E5%8D%80%E4%BF%9D%E5%8D%97%E4%BA%8C%E8%B7%AF207%E8%99%9F%20Tesla%20%E8%B6%85%E7%B4%9A%E5%85%85%E9%9B%BB%E7%AB%99&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="Tesla 鳳山保南全聯超級充電站：開啟 Google Maps 開車導航">
+  <title>Tesla 鳳山保南全聯超級充電站｜備選充電站・點選導航</title>
+  <path d="M434 375L449 425" stroke="#417989" stroke-width="1.6" stroke-dasharray="3 4" fill="none"/>
+  <g transform="rotate(0 572 428)">
+   <rect x="449" y="394" width="246" height="70" rx="4" fill="#e8efeb" stroke="#83a4a1" stroke-width="1.7"/>
+   <text x="462" y="415" font-family="Noto Sans TC, sans-serif" font-weight="bold" font-size="16" fill="#2c6571">Tesla 超充・鳳山</text>
+   <text x="462" y="435" font-family="Noto Sans TC, sans-serif" font-size="12.3" fill="#405c5f">保南二路 207 號｜最高 250 kW</text>
+   <text x="462" y="453" font-family="Noto Sans TC, sans-serif" font-size="10.6" fill="#577777">往返途中視路線補電，非固定停靠</text>
+  </g>
+  <g transform="translate(415 378)"><circle r="19" fill="#417989" stroke="#f6f0e3" stroke-width="4"/><circle r="14" fill="none" stroke="#b4d8d7" stroke-width="1" opacity=".85"/><path d="M4 -13L-9 1H-1L-5 13L10 -2H2Z" fill="#fff7d9" stroke="#fff7d9" stroke-linejoin="round" stroke-width="1"/></g>
+ </a>
+  
+ <!-- Optional fast-charge waypoint: distinct blue lightning, not a numbered itinerary stop -->
+ <a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%9D%B1%E6%B8%AF%E9%8E%AE%E6%96%B0%E7%BE%A9%E8%B7%AF85%E8%99%9F%20%E6%9D%B1%E6%B8%AF%E8%A1%8C%E6%94%BF%E4%B8%AD%E5%BF%83%E7%AB%8B%E9%AB%94%E5%81%9C%E8%BB%8A%E5%A0%B4%E5%85%85%E9%9B%BB%E7%AB%99&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="東港行政中心立體停車場快充站：開啟 Google Maps 開車導航">
+  <title>東港行政中心立體停車場快充站｜備選充電站・點選導航</title>
+  <path d="M278 636L298 567" stroke="#417989" stroke-width="1.6" stroke-dasharray="3 4" fill="none"/>
+  <g transform="rotate(-0.6 177.5 570)">
+   <rect x="57" y="536" width="241" height="70" rx="4" fill="#e8efeb" stroke="#83a4a1" stroke-width="1.7"/>
+   <text x="70" y="557" font-family="Noto Sans TC, sans-serif" font-weight="bold" font-size="16" fill="#2c6571">東港行政中心・快充</text>
+   <text x="70" y="577" font-family="Noto Sans TC, sans-serif" font-size="12.3" fill="#405c5f">新義路 85 號｜CCS2・120 kW</text>
+   <text x="70" y="595" font-family="Noto Sans TC, sans-serif" font-size="10.6" fill="#577777">東港午餐附近備案・先確認槍位</text>
+  </g>
+  <g transform="translate(297 639)"><circle r="19" fill="#417989" stroke="#f6f0e3" stroke-width="4"/><circle r="14" fill="none" stroke="#b4d8d7" stroke-width="1" opacity=".85"/><path d="M4 -13L-9 1H-1L-5 13L10 -2H2Z" fill="#fff7d9" stroke="#fff7d9" stroke-linejoin="round" stroke-width="1"/></g>
+ </a>
+ </g>
+<g transform="translate(972 158)"><text x="0" y="0" text-anchor="middle" font-family="Georgia,serif" font-size="18" fill="#26312e">N</text><path d="M0 10L-9 39L0 33L9 39Z" fill="#26312e"/><path d="M0 45L0 65" stroke="#26312e" stroke-width="1.5"/></g>
 </g>
 <path d="M43 126L1057 126L1057 845L43 845Z" fill="none" stroke="#293631" stroke-width="2.5"/>
 <path d="M55 114L160 112M964 114L1056 111" fill="none" stroke="#c08f77" stroke-width="6" opacity=".56"/>
-<text x="69" y="874" font-family="Noto Sans TC,sans-serif" font-size="13" fill="#6c776b">● 紅色虛線 = 行程順序，非道路導航。景點與標示可點擊開啟 Google Maps。</text>
-<text x="69" y="892" font-family="Noto Sans TC,sans-serif" font-size="11" fill="#8a8f7e">插畫道路為概略呈現；地點方位僅供旅行理解，實際行車請以即時導航為準。</text>
+<text x="69" y="874" font-family="Noto Sans TC,sans-serif" font-size="13" fill="#6c776b">● 紅色虛線＝主行程　◇ 綠色＝備選景點　⚡ 藍色＝快充備案（點擊導航）</text>
+<text x="69" y="892" font-family="Noto Sans TC,sans-serif" font-size="11" fill="#8a8f7e">手繪位置僅示意。補電站並非實際行車路線，請以車機導航確認繞路、接頭及空位。</text>
 </svg>
