@@ -4,6 +4,18 @@ const chargingStops=[
  {type:'TESLA SUPERCHARGER',name:'高雄・鳳山保南全聯',spec:'6 座超級充電座｜最高 250 kW｜全年無休',address:'高雄市鳳山區保南二路 207 號',note:'南下東港前或萬丹晚餐後北返，可視導航路線彈性安排；停車需付費，賣場消費可依規定折抵。請先用車機或 Tesla App 確認空位與入口。',navigation:map('高雄 鳳山保南全聯 Tesla 超級充電站 保南二路207號'),detail:'https://www.tesla.com/zh_tw/findus/location/supercharger/kaohsiungbaonanpxmartsueprcharger',detailLabel:'Tesla 官方站點資訊'},
  {type:'東港補電備案｜非 Tesla 超充',name:'東港行政中心立體停車場',spec:'第三方 DC 快充｜120 kW｜CCS2／CCS1',address:'屏東縣東港鎮新義路 85 號',note:'位於東港，可在午餐前後視情況前往；24 小時開放，停車費約每小時 20 元，充電另計。需確認車輛 CCS2 接頭／轉接器是否相容，以及現場充電樁狀態。',navigation:map('東港行政中心立體停車場充電站 新義路85號'),detail:'https://parkboss.tw/charging-station/00293092-S0001',detailLabel:'充電樁規格與狀態'}
 ];
+const chaozhouWalkStops=[
+ {id:'1',name:'正老牌潮州冷熱冰',address:'新生路 120 號',kind:'必吃・主路線',url:map('屏東縣潮州鎮新生路120號 正老牌冷熱冰'),main:true},
+ {id:'2',name:'潮州三山國王廟',address:'西市路 33 號',kind:'順路走逛',url:map('屏東縣潮州鎮西市路33號 三山國王廟'),main:true},
+ {id:'3',name:'林耀輝草茶',address:'西市路 33-5 號',kind:'外帶飲料',url:map('屏東縣潮州鎮西市路33-5號 林耀輝草茶'),main:true},
+ {id:'A',name:'阿倫冰店',address:'新生路 149 號',kind:'冷熱冰二選一',url:map('屏東縣潮州鎮新生路149號 阿倫冰店')},
+ {id:'B',name:'清福號木瓜牛乳',address:'西市路 33-7 號',kind:'飲料備選',url:map('屏東縣潮州鎮西市路33-7號 清福號木瓜牛乳')},
+ {id:'C',name:'潮Q 小米甜甜圈',address:'建基路 142 號',kind:'現炸小點',url:map('屏東縣潮州鎮建基路142號 潮Q小米甜甜圈')},
+ {id:'D',name:'文記肉圓',address:'建基路 177 號',kind:'鹹食備選',url:map('屏東縣潮州鎮建基路177號 文記肉圓')},
+ {id:'E',name:'東港爆漿湯包・潮州店',address:'平安路 1-1 號',kind:'現蒸外帶・需候餐',url:map('屏東縣潮州鎮平安路1-1號 東港爆漿湯包 潮州店')},
+ {id:'F',name:'建基路老街',address:'建基路一帶',kind:'有空再散步',url:map('屏東縣潮州鎮建基路 老街')}
+];
+const chaozhouWalkNav='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent('屏東縣潮州鎮新生路120號')+'&destination='+encodeURIComponent('屏東縣潮州鎮西市路33-5號')+'&waypoints='+encodeURIComponent('屏東縣潮州鎮西市路33號 三山國王廟')+'&travelmode=walking';
 const tunaShops=[
  {name:'曾鮮黑鮪魚專賣店',stall:'220–221 號攤',badge:'黑鮪魚部位首選',text:'適合詢問赤身、中腹、大腹與金三角；想嚐不同部位，可詢問少量拼盤。',url:map('東港華僑市場 曾鮮黑鮪魚專賣店')},
  {name:'王匠黑鮪魚生魚片＆日本料理',stall:'228 號攤',badge:'家庭用餐',text:'除黑鮪魚外，也有握壽司與其他日本料理；適合大人分食、搭配熟食。',url:map('東港華僑市場 王匠黑鮪魚生魚片 日本料理')},
@@ -47,12 +59,27 @@ function renderChargingGuide(){
   </article>`).join('')}</div>
  </section>`;
 }
+function renderChaozhouWalkGuide(){
+ const mainStops=chaozhouWalkStops.filter(p=>p.main);
+ const alternativeStops=chaozhouWalkStops.filter(p=>!p.main);
+ const line=p=>`<li><span class="walk-id ${p.main?'primary':'optional'}">${p.id}</span><div><strong>${p.name}</strong><small>${p.address}・${p.kind}</small></div><a href="${p.url}" target="_blank" rel="noopener noreferrer" aria-label="導航到${p.name}">導航 ↗</a></li>`;
+ return `<section class="walk-guide" id="chaozhou-walk-map" aria-label="潮州圓環散步地圖與備選美食">
+  <div class="walk-guide-head"><span>CHAOZHOU WALK · 潮州小散步</span><h5>圓環散步地圖</h5><p>主線只排吃冰、三山國王廟與青草茶；其他店全部是備選。不延後約 16:00 出發去萬丹的時間。</p></div>
+  <figure class="walk-figure">
+   <div class="walk-map-scroll"><object type="image/svg+xml" data="assets/chaozhou-walk-map.svg?v=20261024-walk1" aria-label="潮州圓環步行地圖，紅色主要步行路線與綠色備選店家；可點圖開啟導航"><img src="assets/chaozhou-walk-map.svg?v=20261024-walk1" alt="潮州圓環散步手繪圖，正老牌冷熱冰、三山國王廟、林耀輝草茶依序推薦；阿倫冰店、清福號、潮Q甜甜圈、文記肉圓、東港爆漿湯包與建基路老街為備選"></object></div>
+   <figcaption>紅色 1–3：推薦步行順序｜綠色 A–F：備選。街道為手繪示意，不取代即時導航。</figcaption>
+  </figure>
+  <div class="walk-actions"><a href="${chaozhouWalkNav}" target="_blank" rel="noopener noreferrer" class="walk-navigation">Google Maps 推薦步行路線 ↗</a><a href="assets/chaozhou-walk-map.svg?v=20261024-walk1" target="_blank" rel="noopener noreferrer" class="walk-standalone">開啟完整散步地圖 ↗</a></div>
+  <ol class="walk-directory">${mainStops.map(line).join('')}</ol>
+  <details class="walk-backups"><summary>展開另外 ${alternativeStops.length} 個備選小吃・散步點</summary><ol class="walk-directory">${alternativeStops.map(line).join('')}</ol><p>東港爆漿湯包潮州店位於平安路 1-1 號，現蒸外帶可能需等候，出發前可先問店家。備選不必全部走完。</p></details>
+ </section>`;
+}
 function renderDay(){
  const day=(rain?rainy:normal)[currentDay];
  $('#day-panel').setAttribute('aria-labelledby','tab-'+currentDay);
  const showMap=currentDay===1&&!rain;
  const drawing=showMap?`<figure class="illustrated-route" aria-label="10月24日 SVG 手繪旅遊地圖"><div class="handdrawn-map-scroll"><object type="image/svg+xml" data="assets/day-2-map.svg?v=20261023-evpins1" aria-label="屏東東港、潮州與萬丹的手繪 SVG 地圖，附建議抵達時間"><img src="assets/day-2-map.svg?v=20261023-evpins1" alt="10:00台南出發、11:30東港海鮮、13:15潮州鐵道園區、15:25潮州冷熱冰、17:00萬丹牛肉爐；大鮪魚航海樂園為備選的手繪地圖"></object></div><figcaption><span>原創 SVG 手繪地圖｜藍色 ⚡ 為快充備案，點選標記可開啟導航；道路與地點僅示意。</span><a href="assets/day-2-map.svg" target="_blank" rel="noopener noreferrer">開啟完整 SVG 地圖 ↗</a></figcaption></figure>`:'';
- $('#day-panel').innerHTML=`<div class="day-layout ${showMap?'has-illustrated-map':''}"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p>${drawing}<div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日 Google Maps 自駕導航 ↗</a>`:''}${showMap?renderChargingGuide():''}${day.optional?`<aside class="optional-stop"<span class="optional-eyebrow">OPTIONAL · 備選景點</span><h4>${day.optional.title}</h4><p><strong>${day.optional.time}</strong>｜${day.optional.text}</p><a href="${day.optional.url}" target="_blank" rel="noopener noreferrer">備選景點導航 ↗</a></aside>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag,extraLinks])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}${(extraLinks||[]).map(link=>`<a class="event-extra-link" href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label} ↗</a>`).join('')}${showMap&&title.includes('東港華僑市場')?renderTunaGuide():''}</div></li>`).join('')}</ol></div>`;
+ $('#day-panel').innerHTML=`<div class="day-layout ${showMap?'has-illustrated-map':''}"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p>${drawing}<div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日 Google Maps 自駕導航 ↗</a>`:''}${showMap?renderChargingGuide():''}${day.optional?`<aside class="optional-stop"><span class="optional-eyebrow">OPTIONAL · 備選景點</span><h4>${day.optional.title}</h4><p><strong>${day.optional.time}</strong>｜${day.optional.text}</p><a href="${day.optional.url}" target="_blank" rel="noopener noreferrer">備選景點導航 ↗</a></aside>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag,extraLinks])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}${(extraLinks||[]).map(link=>`<a class="event-extra-link" href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label} ↗</a>`).join('')}${showMap&&title.includes('東港華僑市場')?renderTunaGuide():''}${showMap&&title.includes('潮州冷熱冰')?renderChaozhouWalkGuide():''}</div></li>`).join('')}</ol></div>`;
  $('#announce').textContent=`10 月 ${23+currentDay} 日，${rain?'雨天':'原定'}行程`;
 }
 function selectDay(i,focus=false){
