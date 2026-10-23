@@ -1,5 +1,9 @@
 const links={stay:'https://maps.app.goo.gl/ERi5VLpxHvLZs2EH8',dinner:'https://maps.app.goo.gl/8Qjt6e6Jh6g5aPnu7?g_st=il',w1:'https://maps.app.goo.gl/wCB4E1TF9NQG2RZt7',w2:'https://maps.app.goo.gl/oEy93GG81ZfMRvV1A'};
 const map=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+const chargingStops=[
+ {type:'TESLA SUPERCHARGER',name:'高雄・鳳山保南全聯',spec:'6 座超級充電座｜最高 250 kW｜全年無休',address:'高雄市鳳山區保南二路 207 號',note:'南下東港前或萬丹晚餐後北返，可視導航路線彈性安排；停車需付費，賣場消費可依規定折抵。請先用車機或 Tesla App 確認空位與入口。',navigation:map('高雄 鳳山保南全聯 Tesla 超級充電站 保南二路207號'),detail:'https://www.tesla.com/zh_tw/findus/location/supercharger/kaohsiungbaonanpxmartsueprcharger',detailLabel:'Tesla 官方站點資訊'},
+ {type:'東港補電備案｜非 Tesla 超充',name:'東港行政中心立體停車場',spec:'第三方 DC 快充｜120 kW｜CCS2／CCS1',address:'屏東縣東港鎮新義路 85 號',note:'位於東港，可在午餐前後視情況前往；24 小時開放，停車費約每小時 20 元，充電另計。需確認車輛 CCS2 接頭／轉接器是否相容，以及現場充電樁狀態。',navigation:map('東港行政中心立體停車場充電站 新義路85號'),detail:'https://parkboss.tw/charging-station/00293092-S0001',detailLabel:'充電樁規格與狀態'}
+];
 const tunaShops=[
  {name:'曾鮮黑鮪魚專賣店',stall:'220–221 號攤',badge:'黑鮪魚部位首選',text:'適合詢問赤身、中腹、大腹與金三角；想嚐不同部位，可詢問少量拼盤。',url:map('東港華僑市場 曾鮮黑鮪魚專賣店')},
  {name:'王匠黑鮪魚生魚片＆日本料理',stall:'228 號攤',badge:'家庭用餐',text:'除黑鮪魚外，也有握壽司與其他日本料理；適合大人分食、搭配熟食。',url:map('東港華僑市場 王匠黑鮪魚生魚片 日本料理')},
@@ -33,12 +37,22 @@ function renderTunaGuide(){
  <a class="tuna-guide-source" href="https://www.uniopen.com/news/content/6a0fe8b8f8cb70763d6e59fb" target="_blank" rel="noopener noreferrer">參考：2026 華僑市場黑鮪魚店家介紹 ↗</a>
  </section>`;
 }
+function renderChargingGuide(){
+ return `<section class="charge-guide" aria-label="10月24日順路超充與補電備案">
+  <div class="charge-head"><span>EV CHARGING · 順路補電</span><h4>沿途快充備案</h4><p>彈性補電，不佔用原定景點時間；充電站是否需繞路、目前空位與實際費率，請以車機導航及現場為準。</p></div>
+  <div class="charge-cards">${chargingStops.map((stop,i)=>`<article class="charge-card">
+   <div class="charge-card-top"><span class="charge-icon">⚡</span><div><span class="charge-type">${stop.type}</span><h5>${stop.name}</h5><p class="charge-address">${stop.address}</p></div></div>
+   <p class="charge-spec">${stop.spec}</p><p class="charge-note">${stop.note}</p>
+   <div class="charge-links"><a href="${stop.navigation}" target="_blank" rel="noopener noreferrer">開啟 Google Maps 導航 ↗</a><a href="${stop.detail}" target="_blank" rel="noopener noreferrer">${stop.detailLabel} ↗</a></div>
+  </article>`).join('')}</div>
+ </section>`;
+}
 function renderDay(){
  const day=(rain?rainy:normal)[currentDay];
  $('#day-panel').setAttribute('aria-labelledby','tab-'+currentDay);
  const showMap=currentDay===1&&!rain;
  const drawing=showMap?`<figure class="illustrated-route" aria-label="10月24日 SVG 手繪旅遊地圖"><div class="handdrawn-map-scroll"><object type="image/svg+xml" data="assets/day-2-map.svg?v=20261023-rail1" aria-label="屏東東港、潮州與萬丹的手繪 SVG 地圖，附建議抵達時間"><img src="assets/day-2-map.svg?v=20261023-rail1" alt="10:00台南出發、11:30東港海鮮、13:15潮州鐵道園區、15:25潮州冷熱冰、17:00萬丹牛肉爐；大鮪魚航海樂園為備選的手繪地圖"></object></div><figcaption><span>原創 SVG 手繪路線｜街道與地景為插畫示意，不取代實際道路導航。</span><a href="assets/day-2-map.svg" target="_blank" rel="noopener noreferrer">開啟完整 SVG 地圖 ↗</a></figcaption></figure>`:'';
- $('#day-panel').innerHTML=`<div class="day-layout ${showMap?'has-illustrated-map':''}"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p>${drawing}<div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日 Google Maps 自駕導航 ↗</a>`:''}${day.optional?`<aside class="optional-stop"><span class="optional-eyebrow">OPTIONAL · 備選景點</span><h4>${day.optional.title}</h4><p><strong>${day.optional.time}</strong>｜${day.optional.text}</p><a href="${day.optional.url}" target="_blank" rel="noopener noreferrer">備選景點導航 ↗</a></aside>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag,extraLinks])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}${(extraLinks||[]).map(link=>`<a class="event-extra-link" href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label} ↗</a>`).join('')}${showMap&&title.includes('東港華僑市場')?renderTunaGuide():''}</div></li>`).join('')}</ol></div>`;
+ $('#day-panel').innerHTML=`<div class="day-layout ${showMap?'has-illustrated-map':''}"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p>${drawing}<div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日 Google Maps 自駕導航 ↗</a>`:''}${showMap?renderChargingGuide():''}${day.optional?`<aside class="optional-stop"<span class="optional-eyebrow">OPTIONAL · 備選景點</span><h4>${day.optional.title}</h4><p><strong>${day.optional.time}</strong>｜${day.optional.text}</p><a href="${day.optional.url}" target="_blank" rel="noopener noreferrer">備選景點導航 ↗</a></aside>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag,extraLinks])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}${(extraLinks||[]).map(link=>`<a class="event-extra-link" href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label} ↗</a>`).join('')}${showMap&&title.includes('東港華僑市場')?renderTunaGuide():''}</div></li>`).join('')}</ol></div>`;
  $('#announce').textContent=`10 月 ${23+currentDay} 日，${rain?'雨天':'原定'}行程`;
 }
 function selectDay(i,focus=false){
