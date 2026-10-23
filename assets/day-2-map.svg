@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 910" width="1100" height="910" role="img" aria-labelledby="map-title map-desc">
 <title id="map-title">10月24日｜台南出發，東港、潮州、萬丹手繪食旅地圖</title>
-<desc id="map-desc">依景點大致方位繪製的原創手繪風格SVG路線圖，含道路紋理、河海景觀與行程編號。10:00安平留飯店出發；11:30東港華僑市場；12:45大鮪魚航海樂園，停留一小時；14:30潮州冷熱冰；17:00萬丹街頭牛肉爐老店已訂位。圖中景點可點選開啟Google Maps。道路細節為藝術示意，非導航圖。</desc>
+<desc id="map-desc">依景點大致方位繪製的原創手繪風格SVG路線圖，含道路紋理、河海景觀與行程編號。10:00安平留飯店出發；11:30東港華僑市場；13:15至15:10潮州鐵道園區為主要親子景點；15:25潮州冷熱冰；17:00萬丹街頭牛肉爐老店已訂位。大鮪魚航海樂園改列東港備選景點，不包含在主要行程路線。圖中景點可點選開啟Google Maps。道路細節為藝術示意，非導航圖。</desc>
 <defs>
  <clipPath id="paper-map"><rect x="43" y="126" width="1014" height="719" rx="5"/></clipPath>
  <filter id="paper-noise" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".46" numOctaves="3" seed="14" result="grain"/><feColorMatrix in="grain" type="matrix" values="0 0 0 0 .35 0 0 0 0 .29 0 0 0 0 .22 0 0 0 .085 0"/></filter>
@@ -62,8 +62,8 @@
  <text x="662" y="636" text-anchor="middle" class="road-label">縣 185</text>
  <path d="M160 203C187 316 231 430 275 529S326 636 354 681" fill="none" stroke="#f8ead7" stroke-width="11" opacity=".9"/>
  <path d="M160 203C187 316 231 430 275 529S326 636 354 681" fill="none" stroke="#ae4c38" stroke-width="5.8" stroke-linecap="round" stroke-dasharray="12 12" marker-end="url(#route-arrow)"/>
- <path d="M354 681Q384 646 405 628C549 602 702 532 856 508C819 439 748 365 695 320" fill="none" stroke="#fbf1e0" stroke-width="11" stroke-linecap="round"/>
- <path d="M354 681Q384 646 405 628C549 602 702 532 856 508C819 439 748 365 695 320" fill="none" stroke="#ae4c38" stroke-width="5.8" stroke-linecap="round" stroke-dasharray="12 12" marker-end="url(#route-arrow)"/>
+ <path d="M354 681C472 700 618 672 718 624Q797 577 856 508C819 439 748 365 695 320" fill="none" stroke="#fbf1e0" stroke-width="11" stroke-linecap="round"/>
+ <path d="M354 681C472 700 618 672 718 624Q797 577 856 508C819 439 748 365 695 320" fill="none" stroke="#ae4c38" stroke-width="5.8" stroke-linecap="round" stroke-dasharray="12 12" marker-end="url(#route-arrow)"/>
  <g transform="rotate(-2 166 209)">
   <rect x="72" y="142" width="211" height="151" rx="3" fill="#f6f0e1" opacity=".96" stroke="#ad9872" stroke-width="2"/>
   <path d="M90 161Q172 175 266 159M101 182Q152 177 207 201M107 257Q179 252 258 268" fill="none" stroke="#c8b996" stroke-width="2"/>
@@ -75,10 +75,43 @@
  <g>
   <path d="M336 686L273 701L241 713" fill="none" stroke="#846f5d" stroke-width="1.7"/>
   <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8F%E6%9D%B1%20%E6%9D%B1%E6%B8%AF%E8%8F%AF%E5%83%91%E5%B8%82%E5%A0%B4" target="_blank" rel="noopener noreferrer" aria-label="屏東 東港華僑市場：開啟 Google Maps"><title>屏東 東港華僑市場・開啟 Google Maps</title><g transform="translate(64 712)"><path d="M0 0 Q131 -5 262 0 L256 70 Q131 76 -2 69Z" fill="#f3efdf" stroke="#d1c29f" stroke-width="1.7" opacity=".96"/><text x="17" y="22" font-family="Georgia, serif" font-style="italic" font-size="18" font-weight="bold" fill="#ad4b35">11:30 到達</text><text x="17" y="46" font-family="KaiTi, DFKai-SB, Noto Serif TC, serif" font-size="20" fill="#26312e" font-weight="bold">東港華僑市場</text><text x="18" y="63" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#73776c">少量海鮮・旗魚黑輪</text></g><g transform="translate(354 681)"><circle r="20" fill="#ae4c38" stroke="#f7f2e6" stroke-width="4"/><circle r="15" fill="none" stroke="#c67560" stroke-width="1.5" opacity=".65"/><text text-anchor="middle" x="0" y="6" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#fff9ed">2</text></g></a>
-  <path d="M424 628Q459 640 492 688" fill="none" stroke="#846f5d" stroke-width="1.7"/>
-  <a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E6%B8%AF%20%E5%A4%A7%E9%AE%AA%E9%AD%9A%E8%88%AA%E6%B5%B7%E6%A8%82%E5%9C%92" target="_blank" rel="noopener noreferrer" aria-label="東港 大鮪魚航海樂園：開啟 Google Maps"><title>東港 大鮪魚航海樂園・開啟 Google Maps</title><g transform="translate(484 684)"><path d="M0 0 Q143.5 -5 287 0 L281 70 Q143.5 76 -2 69Z" fill="#f3efdf" stroke="#d1c29f" stroke-width="1.7" opacity=".96"/><text x="17" y="22" font-family="Georgia, serif" font-style="italic" font-size="18" font-weight="bold" fill="#ad4b35">12:45–13:45</text><text x="17" y="46" font-family="KaiTi, DFKai-SB, Noto Serif TC, serif" font-size="20" fill="#26312e" font-weight="bold">大鮪魚航海樂園</text><text x="18" y="63" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#73776c">親子遊具・停留 1 小時</text></g><g transform="translate(405 628)"><circle r="20" fill="#ae4c38" stroke="#f7f2e6" stroke-width="4"/><circle r="15" fill="none" stroke="#c67560" stroke-width="1.5" opacity=".65"/><text text-anchor="middle" x="0" y="6" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#fff9ed">3</text></g></a>
+
+  <!-- Alternative stop: light-green outline is deliberately excluded from the red itinerary -->
+  <path d="M354 681Q382 649 405 628" fill="none" stroke="#789580" stroke-width="2.2" stroke-dasharray="5 9"/>
+  <path d="M405 614L425 585" fill="none" stroke="#789580" stroke-width="1.6"/>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E6%B8%AF%E5%A4%A7%E9%AE%AA%E9%AD%9A%E8%88%AA%E6%B5%B7%E6%A8%82%E5%9C%92" target="_blank" rel="noopener noreferrer" aria-label="備選景點：大鮪魚航海樂園，開啟Google Maps">
+    <title>備選・大鮪魚航海樂園｜不在主行程路線</title>
+    <g transform="translate(329 534)">
+      <rect width="279" height="59" rx="5" fill="#e9eee4" stroke="#8ca18d" stroke-width="1.5"/>
+      <text x="13" y="22" font-family="Noto Sans TC, sans-serif" font-size="15" font-weight="bold" fill="#58745e">備選｜大鮪魚航海樂園</text>
+      <text x="13" y="44" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#58745e">東港若有餘裕才短停 · 非主要路線</text>
+    </g>
+    <circle cx="405" cy="628" r="16" fill="#e9eee4" stroke="#6e9278" stroke-width="3"/>
+    <text x="405" y="635" text-anchor="middle" font-family="Georgia,serif" font-size="21" fill="#51715a">?</text>
+  </a>
+  <!-- 13:15 railway park is the primary third stop -->
+  <path d="M718 624Q696 649 681 671" fill="none" stroke="#846f5d" stroke-width="1.7"/>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E5%85%89%E5%BE%A9%E8%B7%AF461%E8%99%9F%20%E6%BD%AE%E5%B7%9E%E9%90%B5%E9%81%93%E5%9C%92%E5%8D%80" target="_blank" rel="noopener noreferrer" aria-label="潮州鐵道園區・13:15到達，開啟Google Maps">
+    <title>13:15–15:10 潮州鐵道園區｜主景點，開啟Google Maps</title>
+    <g transform="translate(575 678)">
+      <path d="M0 0Q146 -5 292 0L286 70Q146 76 -2 69Z" fill="#f3efdf" stroke="#d1c29f" stroke-width="1.7" opacity=".98"/>
+      <text x="17" y="22" font-family="Georgia,serif" font-size="18" font-weight="bold" font-style="italic" fill="#ad4b35">13:15–15:10</text>
+      <text x="17" y="45" font-family="KaiTi, DFKai-SB, Noto Serif TC, serif" font-size="20" fill="#26312e" font-weight="bold">潮州鐵道園區</text>
+      <text x="17" y="62" font-family="Noto Sans TC,sans-serif" font-size="11" fill="#73776c">火車文物・親子主要景點</text>
+    </g>
+    <g transform="translate(718 624)">
+      <circle r="20" fill="#ae4c38" stroke="#f7f2e6" stroke-width="4"/>
+      <circle r="15" fill="none" stroke="#c67560" stroke-width="1.5" opacity=".65"/>
+      <text text-anchor="middle" x="0" y="6" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="#fff9ed">3</text>
+    </g>
+  </a>
+  <!-- Direct link to the user's selected railway park blog -->
+  <a href="https://bunnyann.tw/chaozhou-railway2025/" target="_blank" rel="noopener noreferrer" aria-label="閱讀小兔小安潮州鐵道園區介紹">
+    <rect x="583" y="750" width="166" height="24" rx="4" fill="#ede2ce" stroke="#c8b89c" stroke-width="1"/>
+    <text x="595" y="767" font-family="Noto Sans TC,sans-serif" font-size="12" font-weight="bold" fill="#9a563e">↗ 小兔小安・網誌介紹</text>
+  </a>
   <path d="M855 504Q925 489 941 518" fill="none" stroke="#846f5d" stroke-width="1.7"/>
-  <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8F%E6%9D%B1%20%E6%BD%AE%E5%B7%9E%20%E6%AD%A3%E8%80%81%E7%89%8C%E5%86%B7%E7%86%B1%E5%86%B0" target="_blank" rel="noopener noreferrer" aria-label="屏東 潮州 正老牌冷熱冰：開啟 Google Maps"><title>屏東 潮州 正老牌冷熱冰・開啟 Google Maps</title><g transform="translate(804 561)"><path d="M0 0 Q124.5 -5 249 0 L243 70 Q124.5 76 -2 69Z" fill="#f3efdf" stroke="#d1c29f" stroke-width="1.7" opacity=".96"/><text x="17" y="22" font-family="Georgia, serif" font-style="italic" font-size="18" font-weight="bold" fill="#ad4b35">14:30 到達</text><text x="17" y="46" font-family="KaiTi, DFKai-SB, Noto Serif TC, serif" font-size="20" fill="#26312e" font-weight="bold">潮州圓環冷熱冰</text><text x="18" y="63" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#73776c">午後甜點・彈性散步</text></g><g transform="translate(856 508)"><circle r="20" fill="#ae4c38" stroke="#f7f2e6" stroke-width="4"/><circle r="15" fill="none" stroke="#c67560" stroke-width="1.5" opacity=".65"/><text text-anchor="middle" x="0" y="6" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#fff9ed">4</text></g></a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8F%E6%9D%B1%20%E6%BD%AE%E5%B7%9E%20%E6%AD%A3%E8%80%81%E7%89%8C%E5%86%B7%E7%86%B1%E5%86%B0" target="_blank" rel="noopener noreferrer" aria-label="屏東 潮州 正老牌冷熱冰：開啟 Google Maps"><title>屏東 潮州 正老牌冷熱冰・開啟 Google Maps</title><g transform="translate(804 561)"><path d="M0 0 Q124.5 -5 249 0 L243 70 Q124.5 76 -2 69Z" fill="#f3efdf" stroke="#d1c29f" stroke-width="1.7" opacity=".96"/><text x="17" y="22" font-family="Georgia, serif" font-style="italic" font-size="18" font-weight="bold" fill="#ad4b35">15:25 到達</text><text x="17" y="46" font-family="KaiTi, DFKai-SB, Noto Serif TC, serif" font-size="20" fill="#26312e" font-weight="bold">潮州圓環冷熱冰</text><text x="18" y="63" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#73776c">午後甜點・彈性散步</text></g><g transform="translate(856 508)"><circle r="20" fill="#ae4c38" stroke="#f7f2e6" stroke-width="4"/><circle r="15" fill="none" stroke="#c67560" stroke-width="1.5" opacity=".65"/><text text-anchor="middle" x="0" y="6" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#fff9ed">4</text></g></a>
   <path d="M696 302Q730 276 744 254" fill="none" stroke="#846f5d" stroke-width="1.7"/>
   <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E8%90%AC%E4%B8%B9%E9%84%89%E8%90%AC%E5%85%A8%E6%9D%91%E8%90%AC%E4%B8%B9%E8%B7%AF%E4%B8%80%E6%AE%B5488%E8%99%9F" target="_blank" rel="noopener noreferrer" aria-label="屏東縣萬丹鄉萬全村萬丹路一段488號：開啟 Google Maps"><title>屏東縣萬丹鄉萬全村萬丹路一段488號・開啟 Google Maps</title><g transform="translate(730 239)"><path d="M0 0 Q160 -5 320 0 L314 70 Q160 76 -2 69Z" fill="#f3efdf" stroke="#d1c29f" stroke-width="1.7" opacity=".96"/><text x="17" y="22" font-family="Georgia, serif" font-style="italic" font-size="18" font-weight="bold" fill="#ad4b35">17:00 已訂位</text><text x="17" y="46" font-family="KaiTi, DFKai-SB, Noto Serif TC, serif" font-size="20" fill="#26312e" font-weight="bold">街頭牛肉爐・老店</text><text x="18" y="63" font-family="Noto Sans TC, sans-serif" font-size="11" fill="#73776c">店面正對面有專屬免費停車場</text></g><g transform="translate(695 320)"><circle r="20" fill="#ae4c38" stroke="#f7f2e6" stroke-width="4"/><circle r="15" fill="none" stroke="#c67560" stroke-width="1.5" opacity=".65"/><text text-anchor="middle" x="0" y="6" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#fff9ed">5</text></g></a>
  </g>
