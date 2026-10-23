@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 910" width="1100" height="910" role="img" aria-labelledby="map-title map-desc">
 <title id="map-title">10月24日｜台南出發，東港、潮州、萬丹手繪食旅地圖</title>
-<desc id="map-desc">依景點大致方位繪製的原創手繪風格SVG路線圖，含道路紋理、河海景觀與行程編號。09:30安平留飯店出發；11:00東港華僑市場；12:15大鮪魚航海樂園，停留一小時；14:00潮州冷熱冰；17:00萬丹街頭牛肉爐老店已訂位。圖中景點可點選開啟Google Maps。道路細節為藝術示意，非導航圖。</desc>
+<desc id="map-desc">依景點大致方位繪製的原創手繪風格SVG路線圖，含道路紋理、河海景觀與行程編號。10:00安平留飯店出發；11:00東港華僑市場；12:15大鮪魚航海樂園，停留一小時；14:00潮州冷熱冰；17:00萬丹街頭牛肉爐老店已訂位。圖中景點可點選開啟Google Maps。道路細節為藝術示意，非導航圖。</desc>
 <defs>
  <clipPath id="paper-map"><rect x="43" y="126" width="1014" height="719" rx="5"/></clipPath>
  <filter id="paper-noise" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".46" numOctaves="3" seed="14" result="grain"/><feColorMatrix in="grain" type="matrix" values="0 0 0 0 .35 0 0 0 0 .29 0 0 0 0 .22 0 0 0 .085 0"/></filter>
@@ -69,7 +69,7 @@
   <path d="M90 161Q172 175 266 159M101 182Q152 177 207 201M107 257Q179 252 258 268" fill="none" stroke="#c8b996" stroke-width="2"/>
   <text x="100" y="178" font-family="Georgia,serif" font-style="italic" font-size="15" fill="#ac4d3a">START</text>
   <text x="117" y="241" class="map-heading" font-size="21">台南・安平留飯店</text>
-  <text x="119" y="268" font-family="Georgia,serif" font-weight="bold" font-size="18" fill="#ae4c38">09:30 DEPART</text>
+  <text x="119" y="268" font-family="Georgia,serif" font-weight="bold" font-size="18" fill="#ae4c38">10:00 DEPART</text>
  </g>
  <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E5%8D%97%20%E5%AE%89%E5%B9%B3%E7%95%99%E9%A3%AF%E5%BA%97" target="_blank" rel="noopener noreferrer" aria-label="台南 安平留飯店：開啟 Google Maps"><title>台南 安平留飯店・開啟 Google Maps</title><circle cx="160" cy="206" r="29" fill="#f6efdf" opacity=".96"/><g transform="translate(160 206)"><circle r="20" fill="#ae4c38" stroke="#f7f2e6" stroke-width="4"/><circle r="15" fill="none" stroke="#c67560" stroke-width="1.5" opacity=".65"/><text text-anchor="middle" x="0" y="6" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#fff9ed">1</text></g></a>
  <g>
