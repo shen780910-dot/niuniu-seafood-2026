@@ -35,3 +35,12 @@
 .dark .handdrawn-map-scroll{border-color:#727063}
 @media(max-width:1100px){.day-layout.has-illustrated-map{grid-template-columns:minmax(0,1fr);gap:26px}}
 @media(max-width:700px){.day-layout.has-illustrated-map{grid-template-columns:1fr;gap:20px}.day-layout.has-illustrated-map .day-story,.day-layout.has-illustrated-map .illustrated-route,.day-layout.has-illustrated-map .handdrawn-map-scroll,.day-layout.has-illustrated-map .route,.day-layout.has-illustrated-map .timeline{max-width:100%}.day-layout.has-illustrated-map .timeline li{grid-template-columns:48px minmax(0,1fr)}.day-layout.has-illustrated-map .timeline li:before{left:52px}.day-layout.has-illustrated-map .timeline{padding-top:15px}.handdrawn-map-scroll object{width:max(100%,520px);max-width:none;aspect-ratio:1100/910}.illustrated-route{margin-top:15px}.illustrated-route figcaption{font-size:10px}.day-story .day-count{margin-bottom:10px}}
+
+/* Primary railway park + optional tuna playground */
+.optional-stop{max-width:860px;margin-top:24px;padding:16px 18px;background:var(--soft);border-left:3px solid #7f9a88}
+.optional-eyebrow{display:block;font-size:10px;letter-spacing:1.6px;color:#577967;margin-bottom:6px}
+.optional-stop h4{font-family:var(--serif);font-size:18px;margin:0 0 7px}
+.optional-stop p{color:var(--muted);font-size:12px;line-height:1.9;margin:0 0 10px}
+.optional-stop a{font-size:12px;color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.event .event-extra-link{margin-left:15px;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:700px){.optional-stop{padding:13px 14px}.event .event-extra-link{margin-left:0;margin-right:12px}.event a{padding-right:8px}}
