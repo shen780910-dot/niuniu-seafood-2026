@@ -1,11 +1,17 @@
 const links={stay:'https://maps.app.goo.gl/ERi5VLpxHvLZs2EH8',dinner:'https://maps.app.goo.gl/8Qjt6e6Jh6g5aPnu7?g_st=il',w1:'https://maps.app.goo.gl/wCB4E1TF9NQG2RZt7',w2:'https://maps.app.goo.gl/oEy93GG81ZfMRvV1A'};
 const map=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+const tunaShops=[
+ {name:'曾鮮黑鮪魚專賣店',stall:'220–221 號攤',badge:'黑鮪魚部位首選',text:'適合詢問赤身、中腹、大腹與金三角；想嚐不同部位，可詢問少量拼盤。',url:map('東港華僑市場 曾鮮黑鮪魚專賣店')},
+ {name:'王匠黑鮪魚生魚片＆日本料理',stall:'228 號攤',badge:'家庭用餐',text:'除黑鮪魚外，也有握壽司與其他日本料理；適合大人分食、搭配熟食。',url:map('東港華僑市場 王匠黑鮪魚生魚片 日本料理')},
+ {name:'華僑市場魚莊生魚片',stall:'212 號攤',badge:'生魚片備選',text:'黑鮪魚生魚片與握壽司選項，可現場比較部位、份量與價格。',url:map('東港華僑市場 魚莊生魚片 212號')}
+];
 const food=[
 {city:'台南',kind:'沙茶爐',title:'大口味沙茶爐',text:'第一晚就決定是這鍋。海安路的沙茶香，替四天食旅開場。',status:'10/23 晚餐・你指定',url:links.dinner,phone:'062268053'},
 {city:'萬丹',kind:'牛肉爐',title:'街頭牛肉爐・老店',text:'10/24 17:00 已訂位，4 大 2 小。萬丹路一段 488 號；店面正對面有專屬免費停車場。',status:'10/24 晚餐已訂位',url:links.w1,phone:'087776296'},
 {city:'萬丹',kind:'牛肉爐',title:'街頭牛肉爐・西環店',text:'與老店擇一即可，依當日候位、停車與營業狀況決定。',status:'其他備選・本次不前往',url:links.w2},
 {city:'潮州',kind:'燒冷冰',title:'圓環燒冷冰',text:'先暖後涼的甜點小休。正老牌潮州冷熱冰或阿倫冰店，選一間順路的。',status:'你指定的潮州甜點',url:map('潮州圓環燒冷冰')},
 {city:'東港',kind:'海鮮',title:'華僑市場',text:'10/24 11:30 抵達，小小吃點海鮮與旗魚黑輪，保留胃口給晚餐。',status:'10/24 11:30 東港午餐',url:map('東港漁港漁產品直銷中心')},
+...tunaShops.map(shop=>({city:'東港',kind:'黑鮪魚',title:shop.name,text:shop.stall+'｜'+shop.text,status:'10/24 午餐候選・'+shop.badge,url:shop.url})),
 {city:'台南',kind:'牛肉湯',title:'文章牛肉湯・安平',text:'留給台南慢走日的一碗熱湯。早餐先吃少量，若飯店已吃飽就移到午餐。',status:'10/25 建議・依胃口調整',url:map('文章牛肉湯安平總店')}
 ];
 const normal=[
@@ -19,12 +25,20 @@ const rainy=[
 {title:'不追景點，只追一碗熱湯。',desc:'今天以安平附近為主，取消老街散步；若有停班停課，不預設商場或博物館開放。',route:'飯店 → 附近用餐（確認營業） → 飯店',stops:[['上午','慢早餐，不趕出門','飯店內休息，看天氣再決定午餐移動。',links.stay],['中午','附近牛肉湯或魚湯','小雨且安全才到近處用餐，出發前確認營業。',map('安平留飯店附近牛肉湯')],['下午','飯店休息，留白也算旅行','林百貨等室內點僅在確認營業與路況安全後考慮。',links.stay],['晚間','附近簡單晚餐','如果已恢復適合屏東出遊的天氣，可改採原 10/24 屏東路線。',links.stay]]},
 {title:'慢慢退房，平安回家。',desc:'先確認回程路況，再安排出發。取消伴手禮繞路，遇管制不要硬走。',route:'飯店 → 確認道路／運輸 → 安全返程',stops:[['上午','確認交通再整理行李','開車看 1968；若搭公共運輸，查原訂業者公告。','https://1968.freeway.gov.tw/'],['退房前','和飯店確認後續安排','若交通中斷，先聯繫飯店詢問可用方案，不預設能續住或延退。','tel:062982000'],['回程','保留緩衝，取消額外停留','若主管機關建議避免移動，先暫緩出發，依正式公告調整。','https://www.dgpa.gov.tw/typh/daily/nds.html']]}];
 let currentDay=0;let rain=false;const $=s=>document.querySelector(s);const escapeHtml=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function renderTunaGuide(){
+ return `<section class="tuna-guide" aria-label="華僑市場三家黑鮪魚店家參考">
+ <div class="tuna-guide-heading"><span>MARKET PICKS · 現場三選一</span><h5>黑鮪魚，先看這三間</h5><p>全部位於華僑市場內，11:30 到場時先確認有沒有營業、黑鮪魚與金三角現貨，以及各部位報價。</p></div>
+ <div class="tuna-guide-list">${tunaShops.map((shop,i)=>`<article class="tuna-guide-item"><span class="tuna-guide-number">0${i+1}</span><div class="tuna-guide-content"><strong>${shop.name}</strong><span class="tuna-guide-stall">${shop.stall}・${shop.badge}</span><p>${shop.text}</p><a href="${shop.url}" target="_blank" rel="noopener noreferrer">Google Maps 找攤位 ↗</a></div></article>`).join('')}</div>
+ <p class="tuna-guide-notice">10 月不是東港黑鮪魚主要產季；金三角是否有冷凍備貨及價格，請當場詢問。想吃少量可四位大人共點一份，晚餐 17:00 已訂位。</p>
+ <a class="tuna-guide-source" href="https://www.uniopen.com/news/content/6a0fe8b8f8cb70763d6e59fb" target="_blank" rel="noopener noreferrer">參考：2026 華僑市場黑鮪魚店家介紹 ↗</a>
+ </section>`;
+}
 function renderDay(){
  const day=(rain?rainy:normal)[currentDay];
  $('#day-panel').setAttribute('aria-labelledby','tab-'+currentDay);
  const showMap=currentDay===1&&!rain;
  const drawing=showMap?`<figure class="illustrated-route" aria-label="10月24日 SVG 手繪旅遊地圖"><div class="handdrawn-map-scroll"><object type="image/svg+xml" data="assets/day-2-map.svg?v=20261023-rail1" aria-label="屏東東港、潮州與萬丹的手繪 SVG 地圖，附建議抵達時間"><img src="assets/day-2-map.svg?v=20261023-rail1" alt="10:00台南出發、11:30東港海鮮、13:15潮州鐵道園區、15:25潮州冷熱冰、17:00萬丹牛肉爐；大鮪魚航海樂園為備選的手繪地圖"></object></div><figcaption><span>原創 SVG 手繪路線｜街道與地景為插畫示意，不取代實際道路導航。</span><a href="assets/day-2-map.svg" target="_blank" rel="noopener noreferrer">開啟完整 SVG 地圖 ↗</a></figcaption></figure>`:'';
- $('#day-panel').innerHTML=`<div class="day-layout ${showMap?'has-illustrated-map':''}"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p>${drawing}<div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日 Google Maps 自駕導航 ↗</a>`:''}${day.optional?`<aside class="optional-stop"><span class="optional-eyebrow">OPTIONAL · 備選景點</span><h4>${day.optional.title}</h4><p><strong>${day.optional.time}</strong>｜${day.optional.text}</p><a href="${day.optional.url}" target="_blank" rel="noopener noreferrer">備選景點導航 ↗</a></aside>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag,extraLinks])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}${(extraLinks||[]).map(link=>`<a class="event-extra-link" href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label} ↗</a>`).join('')}</div></li>`).join('')}</ol></div>`;
+ $('#day-panel').innerHTML=`<div class="day-layout ${showMap?'has-illustrated-map':''}"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p>${drawing}<div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日 Google Maps 自駕導航 ↗</a>`:''}${day.optional?`<aside class="optional-stop"><span class="optional-eyebrow">OPTIONAL · 備選景點</span><h4>${day.optional.title}</h4><p><strong>${day.optional.time}</strong>｜${day.optional.text}</p><a href="${day.optional.url}" target="_blank" rel="noopener noreferrer">備選景點導航 ↗</a></aside>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag,extraLinks])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}${(extraLinks||[]).map(link=>`<a class="event-extra-link" href="${link.url}" target="_blank" rel="noopener noreferrer">${link.label} ↗</a>`).join('')}${showMap&&title.includes('東港華僑市場')?renderTunaGuide():''}</div></li>`).join('')}</ol></div>`;
  $('#announce').textContent=`10 月 ${23+currentDay} 日，${rain?'雨天':'原定'}行程`;
 }
 function selectDay(i,focus=false){
