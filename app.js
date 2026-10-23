@@ -19,7 +19,7 @@ const rainy=[
 {title:'不追景點，只追一碗熱湯。',desc:'今天以安平附近為主，取消老街散步；若有停班停課，不預設商場或博物館開放。',route:'飯店 → 附近用餐（確認營業） → 飯店',stops:[['上午','慢早餐，不趕出門','飯店內休息，看天氣再決定午餐移動。',links.stay],['中午','附近牛肉湯或魚湯','小雨且安全才到近處用餐，出發前確認營業。',map('安平留飯店附近牛肉湯')],['下午','飯店休息，留白也算旅行','林百貨等室內點僅在確認營業與路況安全後考慮。',links.stay],['晚間','附近簡單晚餐','如果已恢復適合屏東出遊的天氣，可改採原 10/24 屏東路線。',links.stay]]},
 {title:'慢慢退房，平安回家。',desc:'先確認回程路況，再安排出發。取消伴手禮繞路，遇管制不要硬走。',route:'飯店 → 確認道路／運輸 → 安全返程',stops:[['上午','確認交通再整理行李','開車看 1968；若搭公共運輸，查原訂業者公告。','https://1968.freeway.gov.tw/'],['退房前','和飯店確認後續安排','若交通中斷，先聯繫飯店詢問可用方案，不預設能續住或延退。','tel:062982000'],['回程','保留緩衝，取消額外停留','若主管機關建議避免移動，先暫緩出發，依正式公告調整。','https://www.dgpa.gov.tw/typh/daily/nds.html']]}];
 let currentDay=0;let rain=false;const $=s=>document.querySelector(s);const escapeHtml=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function renderDay(){const day=(rain?rainy:normal)[currentDay];$('#day-panel').setAttribute('aria-labelledby','tab-'+currentDay);$('#day-panel').innerHTML=`<div class="day-layout"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p><svg class="trip-route-svg" viewBox="0 0 480 200" role="img" aria-label="10月24日示意路線：台南、東港華僑市場、大鮪魚航海樂園、潮州冷熱冰、萬丹牛肉爐，再回台南" xmlns="http://www.w3.org/2000/svg"><rect width="480" height="200" rx="14" fill="#e9ece4"/><path d="M60 43 Q135 8 194 70 L258 113 Q318 69 403 93 L329 162 Q160 190 60 43" fill="none" stroke="#c8b7a6" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 8"/><g font-family="sans-serif" font-size="13" fill="#233e47" text-anchor="middle"><circle cx="60" cy="43" r="14" fill="#aa4634"/><text x="60" y="48" fill="white">1</text><text x="60" y="20">台南</text><circle cx="194" cy="70" r="14" fill="#aa4634"/><text x="194" y="75" fill="white">2</text><text x="194" y="45">東港海鮮</text><circle cx="258" cy="113" r="14" fill="#aa4634"/><text x="258" y="118" fill="white">3</text><text x="249" y="144">大鮪魚樂園</text><circle cx="403" cy="93" r="14" fill="#aa4634"/><text x="403" y="98" fill="white">4</text><text x="403" y="68">潮州冷熱冰</text><circle cx="329" cy="162" r="14" fill="#aa4634"/><text x="329" y="167" fill="white">5</text><text x="370" y="186">萬丹牛肉爐</text></g></svg><div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日自駕路線 ↗</a>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}</div></li>`).join('')}</ol></div>`;$('#announce').textContent=`10 月 ${23+currentDay} 日，${rain?'雨天':'原定'}行程`}
+function renderDay(){const day=(rain?rainy:normal)[currentDay];$('#day-panel').setAttribute('aria-labelledby','tab-'+currentDay);$('#day-panel').innerHTML=`<div class="day-layout"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p><div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日自駕路線 ↗</a>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}</div></li>`).join('')}</ol></div>${currentDay===1&&!rain?`<section class="geo-map-section" aria-label="10月24日實際地理路線"><div class="geo-map-heading"><span>10.24 · PINGTUNG ROAD TRIP</span><h3>沿著真實街道，從東港走到萬丹。</h3><p>可縮放地圖・點選編號開啟導航；虛線為景點順序連線，非實際道路導航。</p></div><div id="pingtung-map" class="pingtung-map" aria-label="東港、潮州、萬丹景點地圖"></div><div class="map-key">① 台南安平　② 華僑市場　③ 大鮪魚航海樂園　④ 潮州冷熱冰　⑤ 萬丹牛肉爐</div></section>`:""}</div>`;if(currentDay===1&&!rain)renderTripMap();$('#announce').textContent=`10 月 ${23+currentDay} 日，${rain?'雨天':'原定'}行程`}
 function selectDay(i,focus=false){currentDay=i;document.querySelectorAll('[data-day]').forEach((b,index)=>{b.setAttribute('aria-selected',String(i===index));b.tabIndex=i===index?0:-1});renderDay();if(focus)$('#tab-'+i).focus()}
 document.querySelectorAll('[data-day]').forEach(b=>{b.addEventListener('click',()=>selectDay(+b.dataset.day));b.addEventListener('keydown',e=>{let i=currentDay;if(e.key==='ArrowRight')i=(i+1)%4;else if(e.key==='ArrowLeft')i=(i+3)%4;else if(e.key==='Home')i=0;else if(e.key==='End')i=3;else return;e.preventDefault();selectDay(i,true)})});
 $('#rain').addEventListener('click',()=>{rain=!rain;$('#rain').setAttribute('aria-pressed',String(rain));$('#rain span').textContent=rain?'開':'關';renderDay()});
@@ -28,3 +28,27 @@ document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click'
 function setTheme(dark){document.body.classList.toggle('dark',dark);$('#theme').setAttribute('aria-pressed',String(dark));$('#theme').setAttribute('aria-label',dark?'切換淺色模式':'切換深色模式');$('#theme').textContent=dark?'☀':'☾'}
 try{setTheme(localStorage.getItem('niuniu-theme')==='dark')}catch{}$('#theme').addEventListener('click',()=>{const dark=!document.body.classList.contains('dark');setTheme(dark);try{localStorage.setItem('niuniu-theme',dark?'dark':'light')}catch{}});renderDay();renderFood();
 
+
+let pingtungMap=null;
+function renderTripMap(){
+ if(typeof L==='undefined'){const el=document.getElementById('pingtung-map');if(el)el.innerHTML='<p class="map-fallback">街道地圖暫時無法載入，請使用上方 Google Maps 整日導航。</p>';return;}
+ if(pingtungMap){pingtungMap.remove();pingtungMap=null;}
+ const points=[
+ {name:'安平留飯店',lat:22.995,lon:120.175,detail:'09:30 台南出發',url:links.stay},
+ {name:'東港華僑市場',lat:22.468089,lon:120.44332,detail:'11:00 海鮮午餐',url:map('東港華僑市場')},
+ {name:'大鮪魚航海樂園',lat:22.475,lon:120.454,detail:'12:15–13:15 親子樂園',url:map('東港大鮪魚航海樂園')},
+ {name:'潮州冷熱冰',lat:22.550,lon:120.539,detail:'14:00 下午茶',url:map('正老牌潮州冷熱冰')},
+ {name:'街頭牛肉爐老店',lat:22.589,lon:120.489,detail:'17:00 已訂位 · 4大2小',url:links.w1}
+ ];
+ pingtungMap=L.map('pingtung-map',{scrollWheelZoom:false,zoomControl:true,preferCanvas:false});
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(pingtungMap);
+ const line=points.map(p=>[p.lat,p.lon]);
+ L.polyline(line,{color:'#b24e3b',weight:4,dashArray:'9,9',opacity:.92,renderer:L.svg()}).addTo(pingtungMap);
+ points.forEach((p,i)=>{
+  const marker=L.marker([p.lat,p.lon],{icon:L.divIcon({className:'trip-pin-wrap',html:'<span class="trip-pin">'+(i+1)+'</span>',iconSize:[32,32],iconAnchor:[16,16]})}).addTo(pingtungMap);
+  marker.bindTooltip(p.name,{permanent:true,direction:i===0?'left':'right',offset:[12,0],className:'trip-map-tooltip'});
+  marker.bindPopup('<strong>'+p.name+'</strong><p>'+p.detail+'</p><a href="'+p.url+'" target="_blank" rel="noopener noreferrer">Google 地圖導航 ↗</a>');
+ });
+ pingtungMap.fitBounds(L.latLngBounds(line),{padding:[45,65]});
+ setTimeout(()=>pingtungMap&&pingtungMap.invalidateSize(),120);
+}
