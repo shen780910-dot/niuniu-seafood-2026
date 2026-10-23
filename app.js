@@ -4,6 +4,10 @@ const chargingStops=[
  {type:'TESLA SUPERCHARGER',name:'高雄・鳳山保南全聯',spec:'6 座超級充電座｜最高 250 kW｜全年無休',address:'高雄市鳳山區保南二路 207 號',note:'南下東港前或萬丹晚餐後北返，可視導航路線彈性安排；停車需付費，賣場消費可依規定折抵。請先用車機或 Tesla App 確認空位與入口。',navigation:map('高雄 鳳山保南全聯 Tesla 超級充電站 保南二路207號'),detail:'https://www.tesla.com/zh_tw/findus/location/supercharger/kaohsiungbaonanpxmartsueprcharger',detailLabel:'Tesla 官方站點資訊'},
  {type:'東港補電備案｜非 Tesla 超充',name:'東港行政中心立體停車場',spec:'第三方 DC 快充｜120 kW｜CCS2／CCS1',address:'屏東縣東港鎮新義路 85 號',note:'位於東港，可在午餐前後視情況前往；24 小時開放，停車費約每小時 20 元，充電另計。需確認車輛 CCS2 接頭／轉接器是否相容，以及現場充電樁狀態。',navigation:map('東港行政中心立體停車場充電站 新義路85號'),detail:'https://parkboss.tw/charging-station/00293092-S0001',detailLabel:'充電樁規格與狀態'}
 ];
+const chaozhouParking=[
+ {name:'潮州新生停車場',address:'屏東縣潮州鎮新生路 110 號',note:'首選｜近正老牌冷熱冰（新生路 120 號）',url:'https://www.google.com/maps/dir/?api=1&destination=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E6%96%B0%E7%94%9F%E8%B7%AF110%E8%99%9F%20%E6%BD%AE%E5%B7%9E%E6%96%B0%E7%94%9F%E5%81%9C%E8%BB%8A%E5%A0%B4&travelmode=driving'},
+ {name:'潮州日式文化園區站停車場',address:'屏東縣潮州鎮延平路 22 號旁',note:'備選｜若新生路滿位可改停',url:'https://www.google.com/maps/dir/?api=1&destination=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E5%BB%B6%E5%B9%B3%E8%B7%AF22%E8%99%9F%E6%97%81%20%E6%BD%AE%E5%B7%9E%E6%97%A5%E5%BC%8F%E6%96%87%E5%8C%96%E5%9C%92%E5%8D%80%E7%AB%99%E5%81%9C%E8%BB%8A%E5%A0%B4&travelmode=driving'}
+];
 const chaozhouWalkStops=[
  {id:'1',name:'正老牌潮州冷熱冰',address:'新生路 120 號',kind:'必吃・主路線',url:map('屏東縣潮州鎮新生路120號 正老牌冷熱冰'),main:true},
  {id:'2',name:'潮州三山國王廟',address:'西市路 33 號',kind:'順路走逛',url:map('屏東縣潮州鎮西市路33號 三山國王廟'),main:true},
@@ -65,12 +69,13 @@ function renderChaozhouWalkGuide(){
  const alternativeStops=chaozhouWalkStops.filter(p=>!p.main);
  const line=p=>`<li><span class="walk-id ${p.main?'primary':'optional'}">${p.id}</span><div><strong>${p.name}</strong><small>${p.address}・${p.kind}</small></div><a href="${p.url}" target="_blank" rel="noopener noreferrer" aria-label="導航到${p.name}">導航 ↗</a></li>`;
  return `<section class="walk-guide" id="chaozhou-walk-map" aria-label="潮州圓環散步地圖與備選美食">
-  <div class="walk-guide-head"><span>CHAOZHOU WALK · 潮州小散步</span><h5>圓環散步地圖</h5><p>主線只排吃冰、三山國王廟與青草茶；其他店全部是備選。不延後約 16:00 出發去萬丹的時間。</p></div>
+  <div class="walk-guide-head"><span>CHAOZHOU WALK · 潮州小散步</span><h5>圓環散步地圖</h5><p>地圖現在標出「潮州圓環」六路交會概念和兩處停車場；先停車再吃冰、逛廟口、外帶青草茶，其他店皆為備選。約 16:00 出發去萬丹。</p></div>
+<div class="walk-parking"><h6>🅿️ 圓環附近停車</h6><p>圓環本身有違停科技執法。建議先停車再步行，別在圓環臨停。</p><div class="walk-parking-links">${chaozhouParking.map((p,i)=>`<a href="${p.url}" target="_blank" rel="noopener noreferrer"><span>${i===0?'P1・首選':'P2・備選'}｜${p.name}</span><small>${p.address}・${p.note}</small><em>開車導航 ↗</em></a>`).join('')}</div></div>
   <figure class="walk-figure">
-   <div class="walk-map-scroll"><object type="image/svg+xml" data="assets/chaozhou-walk-map.svg?v=20261024-snack2" aria-label="潮州圓環步行地圖，紅色主要步行路線與綠色備選店家；可點圖開啟導航"><img src="assets/chaozhou-walk-map.svg?v=20261024-snack2" alt="潮州圓環散步手繪圖，正老牌冷熱冰、三山國王廟、林耀輝草茶依序推薦；阿倫冰店、清福號木瓜牛奶、潮Q甜甜圈、文記肉圓、東港爆漿湯包、建基路老街與創意粉圓為備選"></object></div>
-   <figcaption>紅色 1–3：推薦步行順序｜綠色 A–G：備選。街道為手繪示意，不取代即時導航。</figcaption>
+   <div class="walk-map-scroll"><object type="image/svg+xml" data="assets/chaozhou-walk-map.svg?v=20261024-roundabout1" aria-label="潮州圓環步行地圖，紅色主要步行路線與綠色備選店家；可點圖開啟導航"><img src="assets/chaozhou-walk-map.svg?v=20261024-roundabout1" alt="潮州圓環散步手繪圖，正老牌冷熱冰、三山國王廟、林耀輝草茶依序推薦；阿倫冰店、清福號木瓜牛奶、潮Q甜甜圈、文記肉圓、東港爆漿湯包、建基路老街與創意粉圓為備選"></object></div>
+   <figcaption>紅色 1–3：散步順序｜綠色 A–G：備選｜藍色 P：停車。潮州圓環已繪出；路線為插畫示意，不取代導航。</figcaption>
   </figure>
-  <div class="walk-actions"><a href="${chaozhouWalkNav}" target="_blank" rel="noopener noreferrer" class="walk-navigation">Google Maps 推薦步行路線 ↗</a><a href="assets/chaozhou-walk-map.svg?v=20261024-snack2" target="_blank" rel="noopener noreferrer" class="walk-standalone">開啟完整散步地圖 ↗</a></div>
+  <div class="walk-actions"><a href="${chaozhouWalkNav}" target="_blank" rel="noopener noreferrer" class="walk-navigation">Google Maps 推薦步行路線 ↗</a><a href="assets/chaozhou-walk-map.svg?v=20261024-roundabout1" target="_blank" rel="noopener noreferrer" class="walk-standalone">開啟完整散步地圖 ↗</a></div>
   <ol class="walk-directory">${mainStops.map(line).join('')}</ol>
   <details class="walk-backups"><summary>展開另外 ${alternativeStops.length} 個備選小吃・散步點</summary><ol class="walk-directory">${alternativeStops.map(line).join('')}</ol><p>東港爆漿湯包潮州店位於平安路 1-1 號，現蒸外帶可能需等候。創意粉圓位於三星路周邊，距圓環主線較遠，請依所附 Google Maps 連結另行導航，不建議排進這段 25 分鐘散步。</p></details>
  </section>`;
