@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 905" width="1100" height="905" role="img" aria-labelledby="walk-title walk-desc">
 <title id="walk-title">潮州圓環｜步行小吃地圖・推薦路線及備選店家</title>
-<desc id="walk-desc">原創手繪風格潮州散步示意圖，不是精確道路比例。推薦路線是正老牌潮州冷熱冰、三山國王廟、林耀輝草茶。綠色備選包含阿倫冰店、清福號木瓜牛奶、潮Q小米甜甜圈、文記肉圓、東港爆漿湯包潮州店、建基路老街，以及靠近運動公園、較遠的創意粉圓。點選圖示或右欄店家可以開啟Google Maps導航。</desc>
+<desc id="walk-desc">原創手繪風格潮州散步示意圖，明確畫出潮州圓環六路交會概念，但不是精確道路比例。藍色P標記新生路110號與延平路22號旁兩個停車場並可點擊開車導航。推薦路線是正老牌潮州冷熱冰、三山國王廟、林耀輝草茶。綠色備選包含阿倫冰店、清福號木瓜牛奶、潮Q小米甜甜圈、文記肉圓、東港爆漿湯包潮州店、建基路老街，以及靠近運動公園、較遠的創意粉圓。點選圖示或右欄店家可以開啟Google Maps導航。</desc>
 <defs>
  <pattern id="paper-dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="4" cy="6" r=".75" fill="#b2ae9b" opacity=".35"/></pattern>
  <pattern id="orchard" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M0 16L16 0" stroke="#acc0a0" stroke-width="1" opacity=".32"/></pattern>
@@ -30,13 +30,42 @@
  <path d="M164 165L154 185L173 201L192 192L191 171ZM690 744L679 757L694 781L714 779L722 762Z" fill="#b3c5ad" opacity=".8"/>
  <g transform="translate(330 290) rotate(-7)"><rect x="-57" y="-30" width="115" height="59" rx="7" fill="#b9cdb6" stroke="#8ba987" stroke-width="2"/><path d="M-48 19L-13 -13L16 8L44 -16" fill="none" stroke="#819d80" stroke-width="4"/><text x="0" y="44" text-anchor="middle" font-size="12" fill="#5c7867" font-family="Noto Sans TC,sans-serif">老街綠蔭</text></g>
  <g fill="none" stroke="#c4b6a0" stroke-width="1.7"><path d="M535 390L514 424M444 480L402 492M247 602L277 635M199 664L169 679"/></g>
+
+ <!-- Six-leg roundabout: actual landmark missing from the previous sketch. Stylized, not a surveyed roadway. -->
+ <g id="chaozhou-roundabout" aria-label="潮州圓環・六條道路交會">
+  <path d="M540 321L541 171M540 321L688 300M540 321L418 337M540 321L585 462M540 321L455 242M540 321L462 407" fill="none" stroke="#ccb99e" stroke-width="34" stroke-linecap="round"/>
+  <path d="M540 321L541 171M540 321L688 300M540 321L418 337M540 321L585 462M540 321L455 242M540 321L462 407" fill="none" stroke="#f8f0df" stroke-width="23" stroke-linecap="round"/>
+  <circle cx="540" cy="321" r="52" fill="#ccb99e" stroke="#bca98d" stroke-width="2"/>
+  <circle cx="540" cy="321" r="42" fill="#faf1df"/>
+  <circle cx="540" cy="321" r="23" fill="#ceddc3" stroke="#94ae92" stroke-width="2.7"/>
+  <path d="M528 319L538 309L550 315L556 330L538 339L524 331Z" fill="#b5c9ad" stroke="#8da988" stroke-width="1.6"/>
+  <circle cx="538" cy="320" r="5" fill="#8cae83"/>
+ </g>
+ <g transform="translate(600 369)">
+  <path d="M-19 -12L-40 -31" fill="none" stroke="#9b826a" stroke-width="2"/>
+  <rect width="135" height="48" rx="5" fill="#f5eddd" stroke="#b59d7d" stroke-width="1.6"/>
+  <text x="11" y="22" font-family="Noto Serif TC,KaiTi,serif" font-size="19" font-weight="bold" fill="#6e553e">潮州圓環</text>
+  <text x="12" y="39" font-family="Noto Sans TC,sans-serif" font-size="11" fill="#a14e3c">六路交會・勿臨停</text>
+ </g>
  <text x="573" y="236" class="street" transform="rotate(82 573 236)">新生路</text>
  <text x="377" y="363" class="street" transform="rotate(-46 377 363)">西市路</text>
  <text x="206" y="756" class="street" transform="rotate(16 206 756)">建基路</text>
  <text x="673" y="493" class="street" transform="rotate(77 673 493)">平安路</text>
- <path d="M562 290C526 341 481 373 451 413S428 467 408 495" fill="none" stroke="#fff5e3" stroke-width="13" stroke-linecap="round"/>
- <path d="M562 290C526 341 481 373 451 413S428 467 408 495" fill="none" stroke="#b2523b" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 13" marker-end="url(#walk-arrow)"/>
+ <path d="M562 290A39 39 0 0 1 514 352C489 378 470 407 451 413S428 467 408 495" fill="none" stroke="#fff5e3" stroke-width="13" stroke-linecap="round"/>
+ <path d="M562 290A39 39 0 0 1 514 352C489 378 470 407 451 413S428 467 408 495" fill="none" stroke="#b2523b" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 13" marker-end="url(#walk-arrow)"/>
  <path d="M451 413L480 424L476 447" stroke="#b2523b" stroke-width="2" stroke-linecap="round" fill="none"/>
+<a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E6%96%B0%E7%94%9F%E8%B7%AF110%E8%99%9F%20%E6%BD%AE%E5%B7%9E%E6%96%B0%E7%94%9F%E5%81%9C%E8%BB%8A%E5%A0%B4&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="潮州新生停車場：開啟開車導航"><title>P1 潮州新生停車場｜新生路 110 號・點選導航</title>
+<path d="M592 204L590 176" fill="none" stroke="#557e92" stroke-width="1.7" stroke-dasharray="5 5"/>
+<g transform="translate(410 142)"><rect width="180" height="57" rx="5" fill="#e9eff1" stroke="#8cabba" stroke-width="1.8"/>
+<text x="12" y="21" font-family="Noto Sans TC,sans-serif" font-weight="bold" font-size="15" fill="#305a6c">P1・潮州新生停車場</text>
+<text x="12" y="41" font-family="Noto Sans TC,sans-serif" font-size="12" fill="#617780">新生路 110 號・點擊導航</text></g>
+<g transform="translate(609 211)"><circle r="20" fill="#e2eef1" stroke="#58849a" stroke-width="2.5"/><circle r="15" fill="#4c8298"/><text y="5" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="12" fill="#fffaf0">P</text></g></a>
+<a href="https://www.google.com/maps/dir/?api=1&amp;destination=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E5%BB%B6%E5%B9%B3%E8%B7%AF22%E8%99%9F%E6%97%81%20%E6%BD%AE%E5%B7%9E%E6%97%A5%E5%BC%8F%E6%96%87%E5%8C%96%E5%9C%92%E5%8D%80%E7%AB%99%E5%81%9C%E8%BB%8A%E5%A0%B4&amp;travelmode=driving" target="_blank" rel="noopener noreferrer" aria-label="日式文化園區停車場：開啟開車導航"><title>P2 日式文化園區停車場｜延平路 22 號旁・點選導航</title>
+<path d="M355 231L338 208" fill="none" stroke="#557e92" stroke-width="1.7" stroke-dasharray="5 5"/>
+<g transform="translate(98 174)"><rect width="240" height="57" rx="5" fill="#e9eff1" stroke="#8cabba" stroke-width="1.8"/>
+<text x="12" y="21" font-family="Noto Sans TC,sans-serif" font-weight="bold" font-size="15" fill="#305a6c">P2・日式文化園區停車場</text>
+<text x="12" y="41" font-family="Noto Sans TC,sans-serif" font-size="12" fill="#617780">延平路 22 號旁・點擊導航</text></g>
+<g transform="translate(372 238)"><circle r="20" fill="#e2eef1" stroke="#58849a" stroke-width="2.5"/><circle r="15" fill="#4c8298"/><text y="5" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="12" fill="#fffaf0">P</text></g></a>
  <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E6%96%B0%E7%94%9F%E8%B7%AF120%E8%99%9F%20%E6%AD%A3%E8%80%81%E7%89%8C%E6%BD%AE%E5%B7%9E%E5%86%B7%E7%86%B1%E5%86%B0" target="_blank" rel="noopener noreferrer" aria-label="正老牌潮州冷熱冰：開啟Google Maps">
 <title>正老牌潮州冷熱冰｜新生路 120 號，點選開啟導航</title>
 <g transform="translate(561 290)"><circle r="29" fill="#fbede0" stroke="#cf9980" stroke-width="2"/><circle r="21" fill="#a94936" stroke="#fefaf0" stroke-width="2"/><text y="6.5" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="#fff8ee">1</text></g></a>
@@ -132,6 +161,6 @@
 <text x="820" y="786" font-family="Noto Sans TC,sans-serif" font-size="15" font-weight="bold" fill="#263a33">創意粉圓</text>
 <text x="820" y="805" font-family="Noto Sans TC,sans-serif" font-size="11" fill="#6c786a">三星路一帶 · 較遠・非步行主線</text></a>
 <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E6%96%B0%E7%94%9F%E8%B7%AF120%E8%99%9F&amp;destination=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E8%A5%BF%E5%B8%82%E8%B7%AF33-5%E8%99%9F&amp;waypoints=%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%BD%AE%E5%B7%9E%E9%8E%AE%E8%A5%BF%E5%B8%82%E8%B7%AF33%E8%99%9F%20%E4%B8%89%E5%B1%B1%E5%9C%8B%E7%8E%8B%E5%BB%9F&amp;travelmode=walking" target="_blank" rel="noopener noreferrer" aria-label="開啟推薦路線Google Maps步行導航"><rect x="785" y="822" width="269" height="32" rx="6" fill="#b4573c"/><text x="919" y="843" font-family="Noto Sans TC,sans-serif" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff9ef">↗ 開啟 Google Maps 步行導航</text></a>
-<text x="53" y="869" font-family="Noto Sans TC,sans-serif" font-size="12" fill="#637267">紅色虛線＝推薦順序　綠色字母＝備選店家。點擊地圖標記、右欄店名即可導航。</text>
+<text x="53" y="869" font-family="Noto Sans TC,sans-serif" font-size="12" fill="#637267">紅色虛線＝散步順序　綠色 A–G＝備選　藍色 P＝停車場。標記可點擊導航。</text>
 <text x="53" y="887" font-family="Noto Sans TC,sans-serif" font-size="11" fill="#858678">手繪為位置概念圖；街道不依真實比例，實際道路、過街與步行距離以 Google Maps 為準。</text>
 </svg>
