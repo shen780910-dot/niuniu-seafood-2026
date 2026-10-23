@@ -18,36 +18,38 @@ const rainy=[
 {title:'屏東先等等，留在台南也很好。',desc:'雨天模式直接取消萬丹、潮州、東港跨區行程。三個必吃點保留到天氣穩定時再去，不把市場當避雨備案。',route:'安平住宿附近活動；屏東日可移至 10/25，或整日取消',stops:[['早餐後','確認氣象與交通公告','若有強風豪雨、道路封閉或停班停課，留在飯店。','https://www.cwa.gov.tw/V8/C/P/Typhoon/TY_WARN.html'],['中午','住宿附近，找一間仍營業的店','向飯店詢問餐飲，避免為了牛肉爐跨縣市移動。',links.stay],['下午','休息、咖啡或室內短停留','只有在風雨輕微、道路安全且確認店家營業時才外出。',map('安平留飯店附近咖啡')],['晚間','保留明日彈性','若 10/25 天氣恢復，可把屏東整日移到明天；行程不拆成多次長途往返。',links.stay]]},
 {title:'不追景點，只追一碗熱湯。',desc:'今天以安平附近為主，取消老街散步；若有停班停課，不預設商場或博物館開放。',route:'飯店 → 附近用餐（確認營業） → 飯店',stops:[['上午','慢早餐，不趕出門','飯店內休息，看天氣再決定午餐移動。',links.stay],['中午','附近牛肉湯或魚湯','小雨且安全才到近處用餐，出發前確認營業。',map('安平留飯店附近牛肉湯')],['下午','飯店休息，留白也算旅行','林百貨等室內點僅在確認營業與路況安全後考慮。',links.stay],['晚間','附近簡單晚餐','如果已恢復適合屏東出遊的天氣，可改採原 10/24 屏東路線。',links.stay]]},
 {title:'慢慢退房，平安回家。',desc:'先確認回程路況，再安排出發。取消伴手禮繞路，遇管制不要硬走。',route:'飯店 → 確認道路／運輸 → 安全返程',stops:[['上午','確認交通再整理行李','開車看 1968；若搭公共運輸，查原訂業者公告。','https://1968.freeway.gov.tw/'],['退房前','和飯店確認後續安排','若交通中斷，先聯繫飯店詢問可用方案，不預設能續住或延退。','tel:062982000'],['回程','保留緩衝，取消額外停留','若主管機關建議避免移動，先暫緩出發，依正式公告調整。','https://www.dgpa.gov.tw/typh/daily/nds.html']]}];
-let currentDay=0;let rain=false;let pingtungMap=null;const $=s=>document.querySelector(s);const escapeHtml=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function renderDay(){if(pingtungMap){pingtungMap.remove();pingtungMap=null;}const day=(rain?rainy:normal)[currentDay];$('#day-panel').setAttribute('aria-labelledby','tab-'+currentDay);$('#day-panel').innerHTML=`<div class="day-layout"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p>${currentDay===1&&!rain?`<section class="geo-map-section" aria-label="10月24日實際地理路線"><div class="geo-map-heading"><span>10.24 · PINGTUNG ROAD TRIP</span><h3>沿著真實街道，從東港走到萬丹。</h3><p>可縮放地圖・點選編號開啟導航；虛線為景點順序連線，非實際道路導航。</p></div><div id="pingtung-map" class="pingtung-map" aria-label="東港、潮州、萬丹景點地圖"></div><div class="map-key">① 09:30 台南出發　② 11:00 華僑市場　③ 12:15 大鮪魚航海樂園　④ 14:00 潮州冷熱冰　⑤ 17:00 萬丹牛肉爐</div></section>`:""}<div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日自駕路線 ↗</a>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}</div></li>`).join('')}</ol></div></div>`;if(currentDay===1&&!rain)renderTripMap();$('#announce').textContent=`10 月 ${23+currentDay} 日，${rain?'雨天':'原定'}行程`}
-function selectDay(i,focus=false){currentDay=i;history.replaceState(null,'','#day-'+(i+1));document.querySelectorAll('[data-day]').forEach((b,index)=>{b.setAttribute('aria-selected',String(i===index));b.tabIndex=i===index?0:-1});renderDay();if(focus)$('#tab-'+i).focus()}
+let currentDay=0;let rain=false;const $=s=>document.querySelector(s);const escapeHtml=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function renderDay(){
+ const day=(rain?rainy:normal)[currentDay];
+ $('#day-panel').setAttribute('aria-labelledby','tab-'+currentDay);
+ const showMap=currentDay===1&&!rain;
+ const drawing=showMap?`<figure class="illustrated-route" aria-label="10月24日 SVG 手繪旅遊地圖"><div class="handdrawn-map-scroll"><object type="image/svg+xml" data="assets/day-2-map.svg?v=20261023-draw1" aria-label="屏東東港、潮州與萬丹的手繪 SVG 地圖，附建議抵達時間"><img src="assets/day-2-map.svg?v=20261023-draw1" alt="09:30台南出發、11:00東港海鮮、12:15大鮪魚航海樂園、14:00潮州冷熱冰、17:00萬丹牛肉爐的手繪地圖"></object></div><figcaption><span>原創 SVG 手繪路線｜街道與地景為插畫示意，不取代實際道路導航。</span><a href="assets/day-2-map.svg" target="_blank" rel="noopener noreferrer">開啟完整 SVG 地圖 ↗</a></figcaption></figure>`:'';
+ $('#day-panel').innerHTML=`<div class="day-layout ${showMap?'has-illustrated-map':''}"><div class="day-story"><div class="day-count">0${currentDay+1}</div><h3>${day.title}</h3><p>${day.desc}</p>${drawing}<div class="route">${day.route}${day.drive?'<p>'+day.drive+'</p>':''}</div>${day.nav?`<a class="route-link" href="${day.nav}" target="_blank" rel="noopener noreferrer">開啟整日 Google Maps 自駕導航 ↗</a>`:''}</div><ol class="timeline">${day.stops.map(([time,title,text,url,tag])=>`<li><time>${time}</time><div class="event"><h4>${title}${tag?`<span class="tag">${tag}</span>`:''}</h4><p>${text}</p>${url?`<a href="${url}" target="${url.startsWith('tel:')?'_self':'_blank'}" rel="noopener noreferrer">${url.startsWith('tel:')?'撥打電話':url.includes('google')?'開啟地圖':'查看資訊'} ↗</a>`:''}</div></li>`).join('')}</ol></div>`;
+ $('#announce').textContent=`10 月 ${23+currentDay} 日，${rain?'雨天':'原定'}行程`;
+}
+function selectDay(i,focus=false){
+ const next='#day-'+(i+1);
+ if(location.hash!==next)location.hash=next;
+ else renderRoute();
+ if(focus)$('#tab-'+i).focus();
+}
+function renderRoute(scroll=false){
+ const hash=decodeURIComponent(location.hash.slice(1));
+ const match=/^day-([1-4])$/.exec(hash);
+ if(match)currentDay=Number(match[1])-1;
+ const page=match?'itinerary':(['overview','itinerary','food','stay'].includes(hash)?hash:'overview');
+ document.querySelectorAll('[data-page]').forEach(node=>node.hidden=node.dataset.page!==page);
+ document.querySelectorAll('.header nav a').forEach(a=>{if(a.hash==='#'+page)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+ document.querySelectorAll('[data-day]').forEach((b,index)=>{b.setAttribute('aria-selected',String(currentDay===index));b.tabIndex=currentDay===index?0:-1});
+ renderDay();
+ if(scroll){if(hash==='weather')$('#weather').scrollIntoView();else window.scrollTo(0,0);}
+ document.title=({'overview':'旅行總覽','itinerary':'四天行程','food':'美食地圖','stay':'我們的基地'})[page]+'｜牛牛海鮮之旅';
+}
 document.querySelectorAll('[data-day]').forEach(b=>{b.addEventListener('click',()=>selectDay(+b.dataset.day));b.addEventListener('keydown',e=>{let i=currentDay;if(e.key==='ArrowRight')i=(i+1)%4;else if(e.key==='ArrowLeft')i=(i+3)%4;else if(e.key==='Home')i=0;else if(e.key==='End')i=3;else return;e.preventDefault();selectDay(i,true)})});
 $('#rain').addEventListener('click',()=>{rain=!rain;$('#rain').setAttribute('aria-pressed',String(rain));$('#rain span').textContent=rain?'開':'關';renderDay()});
 function renderFood(filter='all'){$('#food-grid').innerHTML=food.filter(f=>filter==='all'||f.city===filter).map(f=>`<article class="food-card"><span class="food-category">${f.city} / ${f.kind}</span><h3>${f.title}</h3><p>${f.text}</p><div class="food-bottom"><a href="${f.url}" target="_blank" rel="noopener noreferrer">看地圖 ↗</a>${f.phone?`<a href="tel:${f.phone}">打電話</a>`:''}<span class="food-status">${f.status}</span></div></article>`).join('')}
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(other=>other.setAttribute('aria-pressed',String(other===b)));renderFood(b.dataset.filter);$('#announce').textContent='顯示'+(b.dataset.filter==='all'?'全部地區':b.dataset.filter)+'美食'}));
 function setTheme(dark){document.body.classList.toggle('dark',dark);$('#theme').setAttribute('aria-pressed',String(dark));$('#theme').setAttribute('aria-label',dark?'切換淺色模式':'切換深色模式');$('#theme').textContent=dark?'☀':'☾'}
-try{setTheme(localStorage.getItem('niuniu-theme')==='dark')}catch{}$('#theme').addEventListener('click',()=>{const dark=!document.body.classList.contains('dark');setTheme(dark);try{localStorage.setItem('niuniu-theme',dark?'dark':'light')}catch{}});const hashDay=Number((location.hash.match(/^#day-([1-4])$/)||[])[1]);if(hashDay)selectDay(hashDay-1);else renderDay();renderFood();
+try{setTheme(localStorage.getItem('niuniu-theme')==='dark')}catch{}$('#theme').addEventListener('click',()=>{const dark=!document.body.classList.contains('dark');setTheme(dark);try{localStorage.setItem('niuniu-theme',dark?'dark':'light')}catch{}});renderFood();window.addEventListener('hashchange',()=>renderRoute(true));renderRoute();
 
 
-function renderTripMap(){
- if(typeof L==='undefined'){const el=document.getElementById('pingtung-map');if(el)el.innerHTML='<p class="map-fallback">街道地圖暫時無法載入，請使用上方 Google Maps 整日導航。</p>';return;}
- if(pingtungMap){pingtungMap.remove();pingtungMap=null;}
- const points=[
- {name:'安平留飯店',time:'09:30 出發',lat:22.995,lon:120.175,detail:'09:30 建議從台南出發',url:links.stay},
- {name:'東港華僑市場',time:'11:00 抵達',lat:22.468089,lon:120.44332,detail:'11:00–12:00 少量海鮮午餐',url:map('東港華僑市場')},
- {name:'大鮪魚航海樂園',time:'12:15 抵達',lat:22.475,lon:120.454,detail:'12:15–13:15 親子樂園一小時',url:map('東港大鮪魚航海樂園')},
- {name:'潮州冷熱冰',time:'14:00 抵達',lat:22.550,lon:120.539,detail:'14:00–15:00 下午茶',url:map('正老牌潮州冷熱冰')},
- {name:'街頭牛肉爐老店',time:'17:00 訂位',lat:22.589,lon:120.489,detail:'17:00 已訂位 · 4大2小（建議16:45到店）',url:links.w1}
- ];
- pingtungMap=L.map('pingtung-map',{scrollWheelZoom:false,zoomControl:true,preferCanvas:false});
- L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(pingtungMap);
- const line=points.map(p=>[p.lat,p.lon]);
- L.polyline(line,{color:'#b24e3b',weight:4,dashArray:'9,9',opacity:.92,renderer:L.svg()}).addTo(pingtungMap);
- points.forEach((p,i)=>{
-  const marker=L.marker([p.lat,p.lon],{icon:L.divIcon({className:'trip-pin-wrap',html:'<span class="trip-pin">'+(i+1)+'</span>',iconSize:[32,32],iconAnchor:[16,16]})}).addTo(pingtungMap);
-  marker.bindTooltip('<strong>'+p.time+'</strong><span>'+p.name+'</span>',{permanent:true,direction:i===0?'left':'right',offset:[12,0],className:'trip-map-tooltip'});
-  marker.bindPopup('<strong>'+p.name+'</strong><p>'+p.detail+'</p><a href="'+p.url+'" target="_blank" rel="noopener noreferrer">Google 地圖導航 ↗</a>');
- });
- pingtungMap.fitBounds(L.latLngBounds(line),{padding:[45,65]});
- setTimeout(()=>pingtungMap&&pingtungMap.invalidateSize(),120);
-}
