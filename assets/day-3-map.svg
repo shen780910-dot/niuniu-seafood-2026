@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 900" role="img" aria-labelledby="svg-title svg-desc">
+<title id="svg-title">10月25日台南親子食旅路線・安平牛肉湯、三井Outlet、三大牛肉火鍋文化店</title>
+<desc id="svg-desc">北方在上之藝術示意地圖。早上從安平留飯店出門；11:00安平文章牛肉湯或附近牛肉湯；13:00至15:30 MITSUI OUTLET PARK台南，17:00到永康三大牛肉火鍋文化店。地點可點擊啟動Google Maps導航；線條是示意，不代表實際道路。</desc>
+<defs>
+ <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".33" numOctaves="3" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 .38 0 0 0 0 .27 0 0 0 0 .14 0 0 0 .045 0"/></filter>
+ <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="2" dy="4" stdDeviation="6" flood-color="#66614d" flood-opacity=".15"/></filter>
+ <pattern id="dot" width="23" height="23" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r=".9" fill="#bcb6a1" opacity=".4"/></pattern>
+ <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#a34c3d" stroke-width="2" stroke-linecap="round"/></marker>
+ <style>
+  .serif{font-family:"Noto Serif TC",KaiTi,serif}.sans{font-family:"Noto Sans TC","PingFang TC",sans-serif}
+  .label{font-family:"Noto Sans TC",sans-serif;font-size:15px;fill:#738075;letter-spacing:2px}
+  .road{font-family:"Noto Sans TC",sans-serif;font-size:17px;fill:#a69d88}
+  .title{font-family:"Noto Serif TC",serif;font-weight:800;fill:#2a4244}
+  a{cursor:pointer}a:focus{outline:none}a:hover .place,a:focus .place{stroke:#c97845;stroke-width:4}
+  a:hover .navhint,a:focus .navhint{fill:#a04433;text-decoration:underline}
+ </style>
+</defs>
+<rect width="1100" height="900" fill="#eee9dd"/>
+<rect width="1100" height="900" fill="#f0e9d9" filter="url(#grain)"/>
+<path d="M24 22Q540 12 1076 24 L1073 875Q548 885 24 876Z" fill="none" stroke="#405752" stroke-width="3"/>
+<text x="63" y="67" class="title" font-size="37">台南慢遊｜牛肉湯・親子逛街・牛肉鍋</text>
+<text x="65" y="105" font-family="Georgia,serif" font-size="17" letter-spacing="2.2" fill="#997755" font-style="italic">SUNDAY · 25 OCTOBER 2026 · TAINAN FAMILY DAY</text>
+<path d="M66 117H1034" stroke="#d2c8ad" stroke-width="2"/>
+<rect x="48" y="138" width="1004" height="666" rx="8" fill="#e9e8da"/>
+<rect x="48" y="138" width="1004" height="666" rx="8" fill="url(#dot)"/>
+<!-- West water & park -->
+<path d="M48 138H158C116 223 157 295 108 362S150 478 95 580S116 714 48 804Z" fill="#cfdee1" stroke="#afcace" stroke-width="2"/>
+<path d="M65 218q25 15 41 3m-45 21q20 11 36 3m-31 258q29 11 39 1" stroke="#98bfc5" stroke-width="3" fill="none" opacity=".8"/>
+<g fill="#d5dfcb" stroke="#a8baa1" stroke-width="2" opacity=".8">
+ <path d="M458 148q74-22 116 35t-15 96q-79 10-104-33z"/>
+ <path d="M450 668q58-54 111-9t-15 112h-101z"/>
+ <path d="M939 399q47-22 83 9v88q-54 22-80-19z"/>
+</g>
+<!-- Roads schematic -->
+<g stroke="#f8f7ee" stroke-linecap="round" fill="none">
+ <path d="M110 390C251 367 344 388 452 460S655 563 959 553" stroke-width="35"/>
+ <path d="M760 145Q778 267 786 390Q796 524 769 770" stroke-width="36"/>
+ <path d="M190 155Q186 378 281 548T432 795" stroke-width="19"/>
+ <path d="M130 685Q355 615 566 620T1008 676" stroke-width="15"/>
+</g>
+<g stroke="#d4cfbd" stroke-width="2" stroke-dasharray="5 12" fill="none" opacity=".8">
+ <path d="M110 390C251 367 344 388 452 460S655 563 959 553"/>
+ <path d="M760 145Q778 267 786 390Q796 524 769 770"/>
+</g>
+<text x="490" y="414" class="road" transform="rotate(24 490 414)">台南市區 → 歸仁方向</text>
+<text x="815" y="495" class="road" transform="rotate(90 815 495)">歸仁・永康方向</text>
+<text x="94" y="187" class="label" fill="#5a909b">安平運河一帶</text>
+<text x="520" y="206" class="label">永康</text>
+<text x="880" y="750" class="label">歸仁</text>
+<!-- Route drawn before card -->
+<path d="M272 333 Q267 358 290 385" stroke="#ad7058" stroke-width="6" fill="none" stroke-dasharray="6 11" stroke-linecap="round"/>
+<path d="M360 487C418 520 521 576 592 641Q619 665 677 670" fill="none" stroke="#b74f3c" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 14" marker-end="url(#arr)"/>
+<path d="M827 577Q843 486 814 396" fill="none" stroke="#b74f3c" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 14" marker-end="url(#arr)"/>
+<text x="481" y="602" font-family="Georgia,serif" font-size="24" font-style="italic" fill="#bd745d" transform="rotate(20 481 602)">Go shopping!</text>
+<!-- North arrow -->
+<g transform="translate(978 178)"><circle r="43" fill="#f7f6ec" stroke="#c7c7b0" stroke-width="2"/><path d="M0-30L-11 8 0 1 11 8Z" fill="#aa503f"/><path d="M0 30L-11-8 0-1 11-8Z" fill="#9dafa6"/><text y="-48" text-anchor="middle" class="sans" font-size="18" font-weight="bold" fill="#526562">N 北</text></g>
+<!-- Hotel -->
+<a xlink:href="https://www.google.com/maps/search/?api=1&amp;query=%E8%87%BA%E5%8D%97%E5%B8%82%E5%AE%89%E5%B9%B3%E5%8D%80%E5%BA%9C%E5%89%8D%E5%9B%9B%E8%A1%9799%E8%99%9F%20%E5%AE%89%E5%B9%B3%E7%95%99%E9%A3%AF%E5%BA%97" target="_blank">
+ <rect class="place" x="168" y="235" width="370" height="100" rx="16" fill="#fffdf4" stroke="#b0b5a5" stroke-width="2" filter="url(#shadow)"/>
+ <rect x="184" y="252" width="61" height="62" rx="13" fill="#e7eeeb"/>
+ <text x="214" y="295" text-anchor="middle" font-size="35">⌂</text>
+ <text x="264" y="265" class="sans" font-size="17" fill="#7b8b7b">出發地 · 上午不排景點</text>
+ <text x="264" y="302" class="title" font-size="28">安平留飯店</text>
+ <text x="264" y="321" class="sans navhint" font-size="13" fill="#9c7353">點擊導航 ↗</text>
+</a>
+<!-- Lunch -->
+<a xlink:href="https://www.google.com/maps/search/?api=1&amp;query=%E6%96%87%E7%AB%A0%E7%89%9B%E8%82%89%E6%B9%AF%20%E5%AE%89%E5%B9%B3%E7%B8%BD%E5%BA%97" target="_blank">
+ <rect class="place" x="155" y="391" width="423" height="140" rx="18" fill="#fffdf4" stroke="#bba68e" stroke-width="2.4" filter="url(#shadow)"/>
+ <circle cx="197" cy="427" r="23" fill="#b65a45"/><text x="197" y="436" font-family="Georgia,serif" font-size="27" font-weight="bold" fill="#fff" text-anchor="middle">1</text>
+ <text x="231" y="426" class="sans" font-size="19" fill="#a24d3e" font-weight="bold">11:00–12:00 · 午餐</text>
+ <text x="178" y="471" class="title" font-size="27">文章牛肉湯 · 安平總店</text>
+ <text x="178" y="495" class="sans" font-size="16" fill="#66746c">或安平留附近牛肉湯</text>
+ <text x="178" y="519" class="sans navhint" font-size="15" fill="#a24d3e">點擊導航 ↗</text>
+</a>
+<!-- Outlet -->
+<a xlink:href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E5%8D%97%E5%B8%82%E6%AD%B8%E4%BB%81%E5%8D%80%E6%AD%B8%E4%BB%81%E5%A4%A7%E9%81%93101%E8%99%9F%20MITSUI%20OUTLET%20PARK%20%E5%8F%B0%E5%8D%97" target="_blank">
+ <rect class="place" x="618" y="563" width="416" height="178" rx="18" fill="#fffdf4" stroke="#9aae9e" stroke-width="3" filter="url(#shadow)"/>
+ <circle cx="659" cy="603" r="23" fill="#315e58"/><text x="659" y="612" font-family="Georgia,serif" font-size="27" font-weight="bold" fill="#fff" text-anchor="middle">2</text>
+ <text x="694" y="605" class="sans" font-size="19" fill="#315e58" font-weight="bold">13:00–15:30 · 親子逛街</text>
+ <text x="643" y="648" class="title" font-size="29">MITSUI OUTLET PARK</text>
+ <text x="643" y="683" class="title" font-size="30">台南三井 Outlet</text>
+ <text x="644" y="712" class="sans navhint" font-size="16" fill="#a24d3e">歸仁大道 101 號 · 點擊導航 ↗</text>
+</a>
+<!-- Dinner -->
+<a xlink:href="https://www.google.com/maps/search/?api=1&amp;query=%E8%87%BA%E5%8D%97%E5%B8%82%E6%B0%B8%E5%BA%B7%E5%8D%80%E6%B0%B8%E5%96%84%E4%BA%8C%E8%A1%97158%E8%99%9F%20%E4%B8%89%E5%A4%A7%E7%89%9B%E8%82%89%E7%81%AB%E9%8D%8B%20%E6%96%87%E5%8C%96%E5%BA%97" target="_blank">
+ <rect class="place" x="604" y="254" width="428" height="148" rx="18" fill="#fffdf4" stroke="#bba68e" stroke-width="2.4" filter="url(#shadow)"/>
+ <circle cx="649" cy="297" r="23" fill="#b65a45"/><text x="649" y="306" font-family="Georgia,serif" font-size="27" font-weight="bold" fill="#fff" text-anchor="middle">3</text>
+ <text x="687" y="303" class="sans" font-size="19" fill="#a24d3e" font-weight="bold">17:00 · 晚餐固定</text>
+ <text x="628" y="346" class="title" font-size="27">三大牛肉火鍋 · 文化店</text>
+ <text x="629" y="374" class="sans navhint" font-size="17" fill="#a24d3e">永善二街 158 號 · 點擊導航 ↗</text>
+</a>
+<rect x="49" y="811" width="1003" height="51" fill="#e1dccb" rx="7"/>
+<text x="70" y="844" class="sans" font-size="18" fill="#485e5b">↗ 各地點可點選導航　｜　紅色虛線為行程順序，非實際道路　｜　15:30 左右預留離場時間</text>
+<text x="1050" y="890" text-anchor="end" font-family="Georgia,serif" font-size="15" fill="#8a806d" font-style="italic">NIUNIU · SOUTHERN TAIWAN 2026</text>
+</svg>
